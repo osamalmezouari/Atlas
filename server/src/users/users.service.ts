@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import * as mysql from 'mysql';
-import { users } from '../entity/users.entity';
+import { users } from './users.entity';
 
 @Injectable()
 export class UsersService {
