@@ -1,32 +1,32 @@
-import { Injectable } from '@nestjs/common';
-import * as mysql from 'mysql';
-import { users } from './users.entity';
+import { Injectable } from "@nestjs/common";
+import * as mysql from "mysql";
+import { Weblink } from "./weblinks.entity";
 
 @Injectable()
-export class UsersService {
+export class WeblinkService {
   private connection;
 
   constructor() {
     this.connection = mysql.createConnection({
-      host: 'localhost',
-      user: 'root',
-      password: '',
-      database: 'animals_adoption',
+      host: "localhost",
+      user: "root",
+      password: "",
+      database: "animals_adoption",
     });
     this.connection.connect((err) => {
       if (err) {
-        console.error('Error connecting to MySQL:', err);
+        console.error("Error connecting to MySQL:", err);
         return;
       }
-      console.log('Connected to MySQL!');
+      console.log("Connected to MySQL!");
     });
   }
 
-  findAll(): Promise<users[]> {
+  findAll(): Promise<Weblink[]> {
     return new Promise((resolve, reject) => {
       this.connection.query(
-        'SELECT * FROM users',
-        (error, results: users[], fields) => {
+        "SELECT * FROM weblinks",
+        (error, results, fields) => {
           if (error) {
             reject(error);
             return;
@@ -36,31 +36,32 @@ export class UsersService {
       );
     });
   }
-  findById(id: number): Promise<users> {
+
+  findById(id: number): Promise<Weblink> {
     return new Promise((resolve, reject) => {
       this.connection.query(
-        'SELECT * FROM users WHERE user_ID = ?',
+        "SELECT * FROM weblinks WHERE id = ?",
         [id],
-        (error, results: users[], fields) => {
+        (error, results, fields) => {
           if (error) {
             reject(error);
             return;
           }
           if (results.length === 0) {
-            resolve(null); // Return null if user is not found
+            resolve(null); // Return null if weblink is not found
           } else {
-            resolve(results[0]); // Return the first result (assuming user_ID is unique)
+            resolve(results[0]); // Return the first result
           }
         },
       );
     });
   }
 
-  create(user: users): Promise<void> {
+  create(weblink: Weblink): Promise<void> {
     return new Promise((resolve, reject) => {
       this.connection.query(
-        'INSERT INTO users SET ?',
-        user,
+        "INSERT INTO weblinks SET ?",
+        weblink,
         (error, results, fields) => {
           if (error) {
             reject(error);
@@ -72,11 +73,11 @@ export class UsersService {
     });
   }
 
-  update(id: number, updatedUser: users): Promise<void> {
+  update(id: number, updatedWeblink: Partial<Weblink>): Promise<void> {
     return new Promise((resolve, reject) => {
       this.connection.query(
-        'UPDATE users SET ? WHERE user_ID = ?',
-        [updatedUser, id],
+        "UPDATE weblinks SET ? WHERE id = ?",
+        [updatedWeblink, id],
         (error, results, fields) => {
           if (error) {
             reject(error);
@@ -91,7 +92,7 @@ export class UsersService {
   delete(id: number): Promise<void> {
     return new Promise((resolve, reject) => {
       this.connection.query(
-        'DELETE FROM users WHERE user_ID = ?',
+        "DELETE FROM weblinks WHERE id = ?",
         [id],
         (error, results, fields) => {
           if (error) {

@@ -1,9 +1,13 @@
 import '../styles/App.css'
-import UserComponent from '../tests/test.tsx';
+import Navbar from "../components/navbar.tsx";
+
 function App() {
   return (
     <>
-      <UserComponent />
+      <h1 className={"text-amber-700 underline text-7xl"} >
+
+      </h1>
+      <Navbar/>
     </>
   )
 }

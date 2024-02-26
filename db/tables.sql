@@ -2,7 +2,7 @@ create table users
 (
     user_ID  int auto_increment
         primary key,
-    avatar   longblob             not null,
+    avatar   text                 not null,
     username varchar(50)          not null,
     password varchar(50)          not null,
     active   tinyint(1) default 1 not null,
@@ -22,26 +22,17 @@ create table adoption
     adoption_posted_Date varchar(100)         not null,
     adoption_Status      tinyint(1) default 0 not null,
     adopted_Date         varchar(100)         null,
+    animal_Name          varchar(10)          null,
+    animal_Race          varchar(10)          null,
+    animal_Born_date     datetime             null,
+    animal_Gender        varchar(10)          null,
+    animal_Class         varchar(50)          null,
+    description          text                 null,
+    weight               decimal(9, 2)        null,
+    health_Status        varchar(50)          null,
+    castrate             tinyint(1) default 0 null,
     constraint adoption_user_user_ID_fk
         foreign key (user_ID) references users (user_ID)
-);
-
-create table animals
-(
-    animal_ID        int auto_increment
-        primary key,
-    animal_Name      varchar(10)          null,
-    animal_Race      varchar(10)          null,
-    animal_Born_date datetime             null,
-    animal_Gender    varchar(10)          null,
-    animal_Class     varchar(50)          null,
-    description      text                 null,
-    weight           decimal(9, 2)        null,
-    health_Status    varchar(50)          null,
-    castrate         tinyint(1) default 0 null,
-    adoption_ID      int                  null,
-    constraint animals_adoption_adoption_ID_fk
-        foreign key (adoption_ID) references adoption (adoption_ID)
 );
 
 create table donation
@@ -58,11 +49,10 @@ create table photos_collections
 (
     animal_Photos_ID int auto_increment
         primary key,
-    animal_ID        int         not null,
-    photo_Category   varchar(10) not null,
-    photo            longblob    not null,
-    constraint photos_collections_animals_animal_ID_fk
-        foreign key (animal_ID) references animals (animal_ID)
+    adoption_ID      int      not null,
+    photo            longblob not null,
+    constraint photos_collections_adoption_adoption_ID_fk
+        foreign key (adoption_ID) references adoption (adoption_ID)
 );
 
 create table reviews
@@ -107,6 +97,8 @@ create table weblinks
     discord  text null,
     github   text null
 );
+
+
 
 
 

@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import * as mysql from 'mysql';
-import { users } from './users.entity';
+import { AdoptionEntity } from './adoption.entity';
 
 @Injectable()
-export class UsersService {
+export class AdoptionService {
   private connection;
 
   constructor() {
@@ -22,11 +22,11 @@ export class UsersService {
     });
   }
 
-  findAll(): Promise<users[]> {
+  findAll(): Promise<AdoptionEntity[]> {
     return new Promise((resolve, reject) => {
       this.connection.query(
-        'SELECT * FROM users',
-        (error, results: users[], fields) => {
+        'SELECT * FROM adoption',
+        (error, results, fields) => {
           if (error) {
             reject(error);
             return;
@@ -36,31 +36,32 @@ export class UsersService {
       );
     });
   }
-  findById(id: number): Promise<users> {
+
+  findById(id: number): Promise<AdoptionEntity> {
     return new Promise((resolve, reject) => {
       this.connection.query(
-        'SELECT * FROM users WHERE user_ID = ?',
+        'SELECT * FROM adoption WHERE adoption_ID = ?',
         [id],
-        (error, results: users[], fields) => {
+        (error, results, fields) => {
           if (error) {
             reject(error);
             return;
           }
           if (results.length === 0) {
-            resolve(null); // Return null if user is not found
+            resolve(null); // Return null if adoption is not found
           } else {
-            resolve(results[0]); // Return the first result (assuming user_ID is unique)
+            resolve(results[0]); // Return the first result
           }
         },
       );
     });
   }
 
-  create(user: users): Promise<void> {
+  create(adoption: AdoptionEntity): Promise<void> {
     return new Promise((resolve, reject) => {
       this.connection.query(
-        'INSERT INTO users SET ?',
-        user,
+        'INSERT INTO adoption SET ?',
+        adoption,
         (error, results, fields) => {
           if (error) {
             reject(error);
@@ -72,11 +73,11 @@ export class UsersService {
     });
   }
 
-  update(id: number, updatedUser: users): Promise<void> {
+  update(id: number, updatedAdoption: Partial<AdoptionEntity>): Promise<void> {
     return new Promise((resolve, reject) => {
       this.connection.query(
-        'UPDATE users SET ? WHERE user_ID = ?',
-        [updatedUser, id],
+        'UPDATE adoption SET ? WHERE adoption_ID = ?',
+        [updatedAdoption, id],
         (error, results, fields) => {
           if (error) {
             reject(error);
@@ -91,7 +92,7 @@ export class UsersService {
   delete(id: number): Promise<void> {
     return new Promise((resolve, reject) => {
       this.connection.query(
-        'DELETE FROM users WHERE user_ID = ?',
+        'DELETE FROM adoption WHERE adoption_ID = ?',
         [id],
         (error, results, fields) => {
           if (error) {

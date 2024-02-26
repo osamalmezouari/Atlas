@@ -1,21 +1,47 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { UsersController } from './users/users.controller'; // Import your UsersController
-import { UsersService } from './users/users.service'; // Import your UsersService
-import { AnimalsModule } from './animals/animals.module';
-import { AdoptionController } from './adoption/adoption.controller';
-import { AdoptionService } from './adoption/adoption.service';
-import { AdoptionModule } from './adoption/adoption.module';
-import { ReviewsController } from './reviews/reviews.controller';
-import { ReviewsService } from './reviews/reviews.service';
-import { PhotosController } from './photos/photos.controller';
-import { PhotosService } from './photos/photos.service';
-import { PhotosModule } from './photos/photos.module';
+import { Module } from "@nestjs/common";
+import { AppController } from "./app.controller";
+import { AppService } from "./app.service";
+import { UsersController } from "./users/users.controller";
+import { UsersService } from "./users/users.service";
+import { ReviewController } from "./reviews/review.controller";
+import { ReviewService } from "./reviews/review.service";
+import { ReviewModule } from "./reviews/review.module";
+import { AdoptionModule } from "./adoption/adoption.module";
+import { SocialService } from "./social/social.service";
+import { RolesModule } from "./roles/roles.module";
+import { RolesService } from "./roles/roles.service";
+import { RolesController } from "./roles/roles.controller";
+import { DonationModule } from "./donation/donation.module";
+import { DonationService } from "./donation/donation.service";
+import { DonationController } from "./donation/donation.controller";
+import { SocialModule } from "./social/social.module";
+import { SocialController } from "./social/social.controller";
+import { WeblinkModule } from "./weblinks/weblinks.module";
 
 @Module({
-  imports: [AnimalsModule, AdoptionModule, PhotosModule],
-  controllers: [AppController, UsersController, AdoptionController, ReviewsController, PhotosController], // Add your UsersController to the controllers array
-  providers: [AppService, UsersService, AdoptionService, ReviewsService, PhotosService], // Add your UsersService to the providers array
+  imports: [
+    ReviewModule,
+    AdoptionModule,
+    SocialModule,
+    WeblinkModule,
+    DonationModule,
+    RolesModule,
+  ],
+  controllers: [
+    AppController,
+    UsersController,
+    ReviewController,
+    SocialController,
+    DonationController,
+    RolesController,
+  ], // Add your UsersController to the controllers array
+  providers: [
+    AppService,
+    UsersService,
+    ReviewService,
+    SocialService,
+    DonationService,
+    RolesService,
+  ], // Add your UsersService to the providers array
 })
 export class AppModule {}
