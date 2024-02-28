@@ -10,3 +10,28 @@
 * {
     box-sizing: border-box;
 }
+::-webkit-scrollbar {
+    width: 5px; /* width of the scrollbar */
+}
+@media (max-width: 850px) {
+    ::-webkit-scrollbar {
+        width: 0; /* width of the scrollbar */
+    }
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* color of the track */
+    border-radius: 3px; /* rounded corners */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #0a303a; /* color of the handle */
+    border-radius: 5px; /* rounded corners */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background:#ef6f18; /* color of the handle on hover */
+}
