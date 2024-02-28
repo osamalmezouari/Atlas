@@ -22,9 +22,9 @@ module.exports = {
       backgroundImage: {
         "logo": "url('D:\\Oussama\\PROJECTS\\Atlas\\client\\public\\assets\\images\\2.png')",
         "navshap": "url('D:\\Oussama\\PROJECTS\\Atlas\\client\\public\\assets\\images\\nav_shape.png')",
-        "home": `url('https://images.unsplash.com/photo-1494256997604-768d1f608cac?q=80&w=1858&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
-        "findshap":`url('D:\\Oussama\\PROJECTS\\Atlas\\client\\public\\assets\\images\\find_shape.png')`
-
+        "home": `url('https://images.unsplash.com/photo-1652042478725-371ea002f53e?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
+        "findshap":`url('D:\\Oussama\\PROJECTS\\Atlas\\client\\public\\assets\\images\\find_shape.png')`,
+        "about":`url('D:\\Oussama\\PROJECTS\\Atlas\\client\\public\\assets\\images\\about.jpg')`
       }
     },
   },

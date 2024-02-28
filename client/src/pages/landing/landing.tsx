@@ -8,11 +8,11 @@ function Landing() {
     <div>
       <Navbar />
       <section className={'sec-1 relative'} style={{height:"calc(100vh - 60px)"}}>
-        <div className={'home-image bg-home bg-center bg-cover absolute -z-20 w-full h-screen'}></div>
+        <div className={'home-image bg-home bg-center bg-cover absolute -z-20 w-full h-screen transform'}></div>
         <div
           className={'home-text-box relative top-56 text-7xl font-bold font-custom grid grid-cols-[600px,700px] grid-rows-[1fr,auto,40px] px-2 text-mywhite pl-5 '}>
           <p className={'highlighted-text leading-snug'}>Find Your <span
-            className={'px-2 bg-orange border-2 border-transparent rounded-3xl'}>Perfect</span> Companion!</p>
+            className={'px-2 bg-orange border-2 border-transparent rounded-3xl bg-findshap bg-contain'}>Perfect</span> Companion!</p>
           <p className={'mb-5 sub-text row-start-2 font-custom font-bold text-xl capitalize pt-2'}>Discover your new
             best
             friend waiting to bring joy and love into your home today !</p>
@@ -23,7 +23,8 @@ function Landing() {
           </button>
         </div>
       </section>
-      <section className={'sec-2 m-auto'}>
+      <section className={'sec-2 m-auto '}>
+        <div className={'bg-about h-screen w-full bg-cover bg-center absolute -z-40'}></div>
         <Searchbar />
       </section>
     </div>
