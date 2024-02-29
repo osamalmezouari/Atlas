@@ -41,7 +41,7 @@ function Navbar() {
     <div>
       {NavState.showNav === "pc" ?
         <nav
-          className={" nav-pc flex justify-between bg-white items-center z-30 px-2 font-custom text-wblue font-black absolute w-full m-auto"}>
+          className={" nav-pc  flex justify-between bg-white items-center z-[100] px-2 font-custom text-wblue font-black fixed w-full m-auto"}>
           <div className={"navpart-one bg-logo bg-cover w-36 h-24 bg-center col-start-1"}></div>
           <div className={"navpart-two flex gap-5  col-start-2 col-span-4 "}>
             <p className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"}>Home</p>
@@ -61,9 +61,9 @@ function Navbar() {
         </nav>
         : ""}
       {NavState.showNav === "phone" ?
-        <nav className={"nav-phone"}>
+        <nav className={"nav-phone "}>
           <div
-            className={"  flex justify-between bg-white items-center z-30 px-2 font-custom text-wblue font-black absolute w-full m-auto"}>
+            className={"  flex justify-between bg-white items-center z-[100] px-2 font-custom text-wblue font-black fixed w-full m-auto"}>
             <div className={"navpart-one bg-logo bg-cover w-36 h-24 bg-center col-start-1"}></div>
             <div className={"navpart-three col-start-6 flex gap-2 pl-5 items-center"}>
               <button
@@ -78,7 +78,7 @@ function Navbar() {
             </div>
           </div>
           <div
-            className={"absolute w-full z-20 top-24 py-2 bg-orange text-white bg-findshap top-[-500px] transition-all duration-700 ease-in-out"}
+            className={"fixed w-full z-[60] top-24 py-2 bg-orange text-white bg-findshap top-[-500px] transition-all duration-700 ease-in-out"}
             style={NavState.showNavele ? { top: "90px" } : {}}>
             <p
               className={"  p-2 font-custom font-bold text cursor-pointer transition-all duration-500 flex gap-6 hover:pl-7 hover:bg-dbleu rounded mx-2"}>
@@ -102,7 +102,7 @@ function Navbar() {
             <div className={"navshap w-full h-8 bg-navshap bg-cover bg-center relative top-10 -z-10 "}></div>
           </div>
           <div
-            className={"navshap-when-nav-hidden w-full h-16 bg-navshap bg-cover bg-center absolute top-12 -z-10 "}></div>
+            className={"navshap-when-nav-hidden  w-full h-16 bg-navshap bg-cover bg-center absolute top-12  "}></div>
         </nav>
         : ''}
     </div>
