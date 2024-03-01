@@ -1,5 +1,4 @@
-create table users
-(
+create table users(
     user_ID  int auto_increment
         primary key,
     avatar   text                 not null,
@@ -14,8 +13,7 @@ create table users
         unique (username)
 );
 
-create table adoption
-(
+create table adoption(
     adoption_ID          int auto_increment
         primary key,
     user_ID              int                  not null,
@@ -35,8 +33,7 @@ create table adoption
         foreign key (user_ID) references users (user_ID)
 );
 
-create table donation
-(
+create table donation(
     donation_ID  int auto_increment
         primary key,
     user_ID      int not null,
