@@ -13,14 +13,15 @@ module.exports = {
         dbleu: '#0a303a',
         coffe: 'rgb(255,245,203)',
         mywhite: '#fff',
-        myblack: '',
+        myblack: '#181a21',
         mygris: ''
       },
       fontFamily: {
         custom: ['Nunito', ...defaultTheme.fontFamily.sans],
-
       },
-
+      backgroundColor: {
+        mysky :'#d5e6eb'
+      },
       backgroundImage: {
         "logo": "url('D:\\Oussama\\PROJECTS\\Atlas\\client\\public\\assets\\images\\2.png')",
         "navshap": "url('D:\\Oussama\\PROJECTS\\Atlas\\client\\public\\assets\\images\\nav_shape.png')",
@@ -30,10 +31,13 @@ module.exports = {
         "about":`url('https://themebeyond.com/beyond/billu/wp-content/uploads/2023/03/breeder_bg.jpg')`,
         "Aboutparent" :'url(https://themebeyond.com/beyond/billu/wp-content/themes/billu/assets/img/bg/about_bg_shape.png)',
         "Aboutchild" :`url(https://images.pexels.com/photos/4564996/pexels-photo-4564996.jpeg?auto=compress&cs=tinysrgb&w=600)`,
+          "Aboutchildmd":'url(https://images.pexels.com/photos/1462635/pexels-photo-1462635.jpeg?auto=compress&cs=tinysrgb&w=600)',
         "navabouticon":'url(https://i0.wp.com/themebeyond.com/beyond/billu/wp-content/uploads/2023/03/about_icon.png?w=640&ssl=1)',
         "paws":'url(https://i0.wp.com/themebeyond.com/beyond/billu/wp-content/themes/billu/assets/img/icon/pawprint.png?w=640&ssl=1)',
-        "avatar":'url(https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=600)'
-
+        "avatar":'url(https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=600)',
+        "rev":'url(https://themebeyond.com/beyond/billu/wp-content/uploads/2023/03/adoption_shop_bg.jpg)',
+        "revshap":'url(D:\\Oussama\\PROJECTS\\Atlas\\client\\public\\assets\\images\\testi_bg_shape01.png)',
+        "slideicon":'url(https://themebeyond.com/beyond/billu/wp-content/themes/billu/assets/img/icon/arrow_bg.png)'
       }
     },
   },

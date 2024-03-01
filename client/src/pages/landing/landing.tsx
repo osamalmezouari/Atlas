@@ -1,7 +1,7 @@
 import Navbar from "../../components/navbar.tsx";
 import { MdOutlinePets } from "react-icons/md";
 import Searchbar from "../../components/searchbar.tsx";
-import { FaPaw } from "react-icons/fa";
+import { FaChevronCircleLeft, FaChevronCircleRight, FaPaw } from "react-icons/fa";
 import ('../../styles/index.css')
 
 function Landing() {
@@ -66,21 +66,21 @@ function Landing() {
       {/*  </div>*/}
       {/*</section>*/}
 
-      <section className={'sec-2 relative about mx-auto w-full bg-about   pb-20 bg-cover bg-center'}>
+      <section className={'sec-2 relative about mx-auto w-full bg-about pb-20 bg-cover bg-center'}>
         <Searchbar />
         {/*<div className={'bg-about h-full w-full bg-cover bg-center absolute -z-40 max-sm:h-[1250px] max-md:h-[1100px] md:h-[1000px] lg:max-h-[1000px]'}></div>*/}
         <div
           className={'about-box rounded-xl bg-mywhite mt-12  m-auto bg-Aboutparent bg-center bg-contain w-9/12 p-12 h-max  grid grid-cols-[1.4fr,2fr] gap-[20px] max-md:grid-rows-[300px] max-md:grid-cols-1 max-md:p-2 max-md:w-[96%] ,max-w-7xl '}>
           <div
-            className={'box-image scale-x-1 rounded bg-Aboutchild relative bg-center bg-cover w-full h-11/12 grid-cols-1 bg-orange '}>
+            className={'box-image scale-x-1 rounded bg-Aboutchild relative bg-center bg-cover w-full h-11/12 grid-cols-1 bg-orange max-md:bg-Aboutchildmd  '}>
             <div
               className={'absolute-element grid justify-center grid-rows-3 gap-5 pt-4 bg-orange bg-findshap  absolute bottom-10 -right-16 w-[210px] h-[190px] rounded max-md:h-3/6 max-md:w-3/6 max-md:right-0 max-md:-bottom-10'}>
               <div className={'bg-navabouticon bg-contain bg-center bg-no-repeat'}></div>
               <p className={'pt-2 text-[3em] text-center  font-custom font-bold text-white self-center'}>
-                +27
+                +24
               </p>
               <p className={'text-[14px] text-white font-bold font-custom self-center'}>
-                PAWS AVAILABLE
+                CITIES AVAILABLE
               </p>
             </div>
           </div>
@@ -111,13 +111,64 @@ function Landing() {
             </div>
           </div>
         </div>
-        <div className={'box container '}>
-          <div className={'box-1'}>
+        <div
+          className={"box-container flex flex-nowrap gap-x-6 max-sm:flex-wrap max-sm:gap-y-4 w-7/12 pt-12 max-md:w-full max-md:px-2 mx-auto "}>
+          <div
+            className={"box-1 bg-white w-full h-56 rounded-2xl grid grid-rows-[40px,1fr,2px,1fr,40px] p-4 gap-y-1 items-center justify-center bg-findshap bg-contain bg-center hover:drop-shadow-2xl transition hover:-top-1 duration-700 cursor-pointer relative   "}>
+            <p
+              className={'text-6xl font-custom self-baseline font-bold row-start-2 bg-blueshap bg-clip-text text-wblue text-center  '}>+235</p>
+            {/*<div className={'w-full h-[0.4px] bg-orange '}></div>*/}
+            <p
+              className={'text-xl font-custom self-start font-bold row-start-4 text-center bg-orange rounded-xl text-white p-2  bg-findshap'}> PAWS
+              AVAILABLE</p>
+          </div>
+          <div
+            className={"box-1 bg-white w-full h-56 rounded-2xl grid grid-rows-[40px,1fr,2px,1fr,40px] p-4 gap-y-1 items-center justify-center bg-findshap bg-contain bg-center hover:drop-shadow-2xl transition hover:-top-1 duration-500 cursor-pointer relative  "}>
+            <p
+              className={'text-6xl font-custom self-baseline font-bold row-start-2 bg-blueshap bg-clip-text text-wblue text-center  '}>+235</p>
+            {/*<div className={'w-full h-[0.4px] bg-orange '}></div>*/}
+            <p
+              className={'text-xl font-custom self-start font-bold row-start-4 text-center bg-orange rounded-xl text-white p-2  bg-findshap'}> PAWS
+              ADOPTED</p>
           </div>
         </div>
       </section>
-      <div>
-      </div>
+      <div className={"w-full h-6 bg-revshap bg-cover bg-center relative -top-6 rotate-180"}></div>
+      <section className={"sec-3 relative rev h-full bg-top bg-rev bg-cover flex flex-col justify-center "}>
+        <div className={'text text-center grid grid-rows-[auto,0.1fr,1fr,auto] gap-3 '}>
+          <div className={'icon bg-paws w-4 h-4 bg-cover animate-bounce rotate-90 mx-auto'}></div>
+          <p className={'capitalize w-full text-orange font-custom text-xl font-bold'}> Testimonials</p>
+          <div>
+            <p className={'capitalize w-full text-4xl font-bold text-dbleu font-custom'}>Our Happy Clients</p>
+            <p className={'capitalize px-2 w-6/12 mx-auto pt-4  font-normal tracking-wide text-dbleu font-custom max-md:w-full'}>The best overall dog DNA test is
+              Embark Breed & Health Kit (view at Chewy), which provides you with a breed brwn and information Most
+              dogs
+            </p>
+          </div>
+        </div>
+        <div
+          className={'reviews-list max-w-[700px] mt-20 h-max py-2 relative grid grid-cols-[auto,1fr,auto] gap-x-3 mx-auto max-md:grid-rows-1 max-md:grid-cols-1 max-md:min-w-full  max-md:px-2 '}>
+          <div className={'bg-slideicon cursor-pointer col-start-1 bg-contain bg-no-repeat bg-center w-10 h-10 self-center flex justify-center items-center text-white max-md:hidden '}><FaChevronCircleLeft/></div>
+          <div
+            className={"one max-md:h-max max-md:m-auto col-start-2 px-4 py-2 w-full max-md:w-10/12 bg-white rounded-lg bg-about grid items-center grid-rows-[20px,40px,1fr] place-items-center"}>
+            <div
+              className={"cyrcle row-start-1 w-16 h-16 rounded-full bg-white absolute -top-[30px] flex justify-center items-center"}>
+              <div className={"bg-avatar w-12 h-12 bg-cover rounded-full"}></div>
+            </div>
+            <p className={"capitalize font-bold row-start-2 pt-3"}>oussama lmezouari</p>
+            <p className={'capitalize row-start-3 self-center w-10/12 text-center '}>Explore design projects on platforms like Dribbble and Behance. Many designers showcase their work, including color schemes used</p>
+          </div>
+          <div
+            className={"bg-slideicon cursor-pointer col-start-3 bg-contain bg-no-repeat bg-center w-10 h-10 self-center flex justify-center items-center text-white max-md:hidden"}><FaChevronCircleRight /></div>
+        </div>
+        <div className={'m-auto grid grid-cols-5 w-max gap-x-3 mb-[20px]'}>
+          <button className={'border w-8 h-4 bg-orange  rounded'}></button>
+          <button className={'border w-8 h-4 bg-white rounded'}></button>
+          <button className={'border w-8 h-4 bg-white rounded'}></button>
+          <button className={'border w-8 h-4 bg-white rounded'}></button>
+          <button className={'border w-8 h-4 bg-white rounded'}></button>
+        </div>
+      </section>
     </div>
   );
 }
