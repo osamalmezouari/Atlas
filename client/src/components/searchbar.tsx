@@ -30,8 +30,8 @@ import { IoSearch } from "react-icons/io5";
 
 function Searchbar() {
   return (
-    <div className={'searchbar relative -top-16 z-50 pb-5 p-2 grid grid-rows-[auto,1fr] mx-auto text-white rounded-2xl mr-auto '}>
-      <div className={'bg-orange col-span-2 rounded-tl-xl rounded-tr-xl text-center font-custom p-1 text-xl capitalize font-bold flex items-center justify-center tracking-wide  bg-findshap bg-contain w-full bg-center h-full max-md:py-2 '}> Discover your forever companion with just a click !</div>
+    <div className={'searchbar relative  w-9/12  -top-16 z-50 pb-5 p-2 grid grid-rows-[auto,1fr] mx-auto text-white rounded-2xl mr-auto max-md:m-0 max-md:w-full'}>
+      <div className={'bg-orange col-span-2 rounded-tl-xl rounded-tr-xl text-center font-custom p-1 text-xl capitalize font-bold flex items-center justify-center tracking-wide  bg-findshap bg-contain w-full bg-center h-16 max-md:py-2 '}> Discover your forever companion with just a click !</div>
       <div
         className={" row-start-2 rounded-bl rounded-br bg-dbleu bg-blueshap bg-center bg-contain items-center col-span-2 grid grid-cols-[50px,1fr,10px,50px,1fr,50px] gap-2 p-2 max-md:grid-rows-[1fr,2px,1fr] max-md:grid-cols-[0.2fr,1fr,0.2fr] "}>
         <div className={"bg-orange border-2 border-transparent rounded bg-findshap bg-contain w-full bg-center h-12 flex items-center  justify-center text-xl max-md:col-start-1 max-md:row-start-1"}><FaLocationArrow /></div>

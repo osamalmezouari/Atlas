@@ -1,14 +1,14 @@
 import Navbar from "../../components/navbar.tsx";
 import { MdOutlinePets } from "react-icons/md";
 import Searchbar from "../../components/searchbar.tsx";
-import { FaChevronCircleLeft, FaChevronCircleRight, FaPaw } from "react-icons/fa";
+import { FaChevronCircleLeft, FaChevronCircleRight, FaPaw, FaPlus } from "react-icons/fa";
 import ('../../styles/index.css')
 
 function Landing() {
   return (
     <div>
       <Navbar />
-      <section className={'sec-1 home relative z-70'} style={{ height: "calc(100vh - 0px)" }}>
+      <section className={'sec-1 home relative z-70'} style={{ height: "calc(100vh)" }}>
         <div className={'home-image bg-home bg-center bg-cover absolute -z-20 w-full h-screen transform'}></div>
         <div
           className={'home-text-box w-11/12 relative top-56 text-[6vh] font-bold font-custom grid grid-cols-[1fr,800px] grid-rows-[1fr,auto,40px] px-2 text-mywhite pl-5 '}>
@@ -140,7 +140,9 @@ function Landing() {
           <p className={'capitalize w-full text-orange font-custom text-xl font-bold'}> Testimonials</p>
           <div>
             <p className={'capitalize w-full text-4xl font-bold text-dbleu font-custom'}>Our Happy Clients</p>
-            <p className={'capitalize px-2 w-6/12 mx-auto pt-4  font-normal tracking-wide text-dbleu font-custom max-md:w-full'}>The best overall dog DNA test is
+            <p
+              className={'capitalize px-2 w-6/12 mx-auto pt-4  font-normal tracking-wide text-dbleu font-custom max-md:w-full'}>The
+              best overall dog DNA test is
               Embark Breed & Health Kit (view at Chewy), which provides you with a breed brwn and information Most
               dogs
             </p>
@@ -148,7 +150,9 @@ function Landing() {
         </div>
         <div
           className={'reviews-list max-w-[700px] mt-20 h-max py-2 relative grid grid-cols-[auto,1fr,auto] gap-x-3 mx-auto max-md:grid-rows-1 max-md:grid-cols-1 max-md:min-w-full  max-md:px-2 '}>
-          <div className={'bg-slideicon cursor-pointer col-start-1 bg-contain bg-no-repeat bg-center w-10 h-10 self-center flex justify-center items-center text-white max-md:hidden '}><FaChevronCircleLeft/></div>
+          <div
+            className={'bg-slideicon cursor-pointer col-start-1 bg-contain bg-no-repeat bg-center w-10 h-10 self-center flex justify-center items-center text-white max-md:hidden '}>
+            <FaChevronCircleLeft /></div>
           <div
             className={"one max-md:h-max max-md:m-auto col-start-2 px-4 py-2 w-full max-md:w-10/12 bg-white rounded-lg bg-about grid items-center grid-rows-[20px,40px,1fr] place-items-center"}>
             <div
@@ -156,10 +160,12 @@ function Landing() {
               <div className={"bg-avatar w-12 h-12 bg-cover rounded-full"}></div>
             </div>
             <p className={"capitalize font-bold row-start-2 pt-3"}>oussama lmezouari</p>
-            <p className={'capitalize row-start-3 self-center w-10/12 text-center '}>Explore design projects on platforms like Dribbble and Behance. Many designers showcase their work, including color schemes used</p>
+            <p className={'capitalize row-start-3 self-center w-10/12 text-center '}>Explore design projects on
+              platforms like Dribbble and Behance. Many designers showcase their work, including color schemes used</p>
           </div>
           <div
-            className={"bg-slideicon cursor-pointer col-start-3 bg-contain bg-no-repeat bg-center w-10 h-10 self-center flex justify-center items-center text-white max-md:hidden"}><FaChevronCircleRight /></div>
+            className={"bg-slideicon cursor-pointer col-start-3 bg-contain bg-no-repeat bg-center w-10 h-10 self-center flex justify-center items-center text-white max-md:hidden"}>
+            <FaChevronCircleRight /></div>
         </div>
         <div className={'m-auto grid grid-cols-5 w-max gap-x-3 mb-[20px]'}>
           <button className={'border w-8 h-4 bg-orange  rounded'}></button>
@@ -167,6 +173,62 @@ function Landing() {
           <button className={'border w-8 h-4 bg-white rounded'}></button>
           <button className={'border w-8 h-4 bg-white rounded'}></button>
           <button className={'border w-8 h-4 bg-white rounded'}></button>
+        </div>
+      </section>
+      <div className={"w-full  top-14 h-[16px] bg-revshap bg-cover bg-center relative"}></div>
+      <section className={'faq mt-10  h-full py-16 bg-mysky flex pt-12 justify-center '}>
+        <div className={'text text-center grid grid-rows-[auto,0.1fr,auto,20px,1fr] gap-3 '}>
+          <div className={'icon bg-paws w-4 h-4 bg-cover animate-bounce rotate-90 mx-auto'}></div>
+          <p className={'capitalize w-full text-orange font-custom text-xl font-bold'}> FA Question</p>
+          <div>
+            <p className={'w-full text-4xl font-bold text-dbleu font-custom'}>Get the Answers You Need</p>
+          </div>
+          <div className={'faqs row-start-5 px-2 grid gap-y-3'}>
+            <div className={'faq-1 bg-white p-4 rounded'}>
+              <div className={'flex justify-between items-center gap-x-6'}>
+                <p className={'text-xl font-extrabold font-custom capitalize text-dbleu'}>
+                  How can I post an animal for adoption on this platform ?
+                </p>
+                <div
+                  className={'bg-slideicon cursor-pointer col-start-1 bg-contain bg-no-repeat bg-center w-10 h-10 self-center flex justify-center items-center text-white'}>
+                  <FaPlus /></div>
+              </div>
+              <div></div>
+            </div>
+            <div className={'faq-1 bg-white p-4 rounded'}>
+              <div className={'flex justify-between items-center gap-x-6'}>
+                <p className={'text-xl font-extrabold font-custom capitalize text-dbleu'}>
+                  Can I search for animals available for adoption without creating an account ?
+                </p>
+                <div
+                  className={'bg-slideicon cursor-pointer col-start-1 bg-contain bg-no-repeat bg-center w-10 h-10 self-center flex justify-center items-center text-white'}>
+                  <FaPlus /></div>
+              </div>
+              <div></div>
+            </div>
+            <div className={'faq-1 bg-white p-4 rounded'}>
+              <div className={'flex justify-between items-center gap-x-6'}>
+                <p className={'text-xl font-extrabold font-custom capitalize text-dbleu'}>
+                  What social apps can I use to contact the users who have posted animals for adoption ?
+                </p>
+                <div
+                  className={'bg-slideicon cursor-pointer col-start-1 bg-contain bg-no-repeat bg-center w-10 h-10 self-center flex justify-center items-center text-white'}>
+                  <FaPlus /></div>
+              </div>
+              <div></div>
+            </div>
+            <div className={'faq-1 bg-white p-4 rounded'}>
+              <div className={'flex justify-between items-center gap-x-6'}>
+                <p className={'text-xl font-extrabold font-custom capitalize text-dbleu'}>
+                  Are there any fees associated with posting or adopting animals on this platform ?
+                </p>
+                <div
+                  className={'bg-slideicon cursor-pointer col-start-1 bg-contain bg-no-repeat bg-center w-10 h-10 self-center flex justify-center items-center text-white'}>
+                  <FaPlus /></div>
+              </div>
+              <div></div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
