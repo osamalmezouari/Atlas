@@ -100,7 +100,7 @@ function Landing() {
           <div>
             <p className={'capitalize w-full text-4xl font-bold text-dbleu font-custom'}>Our Happy Clients</p>
             <p
-              className={'capitalize px-2 w-6/12 mx-auto pt-4  font-normal tracking-wide text-dbleu font-custom max-md:w-full'}>The
+              className={'capitalize  px-2 w-6/12 mx-auto pt-4  font-normal tracking-wide text-dbleu font-custom max-md:w-full'}>The
               best overall dog DNA test is
               Embark Breed & Health Kit (view at Chewy), which provides you with a breed brwn and information Most
               dogs
@@ -145,7 +145,7 @@ function Landing() {
           <div className={'faqs row-start-5 px-2 grid gap-y-3'}>
             <div className={'faq-1 bg-white p-4 rounded'}>
               <div className={"grid grid-cols-[1fr,40px] justify-between items-center gap-x-6"}>
-                <p className={"text-xl font-extrabold font-custom capitalize text-dbleu"}>
+                <p className={"text-xl text-start font-extrabold font-custom capitalize text-dbleu"}>
                   How can I post an animal for adoption on this platform ?
                 </p>
                 <div
@@ -156,7 +156,7 @@ function Landing() {
             </div>
             <div className={"faq-1 bg-white p-4 rounded"}>
               <div className={"grid grid-cols-[1fr,40px] justify-between items-center gap-x-6"}>
-              <p className={'text-xl font-extrabold font-custom capitalize text-dbleu'}>
+              <p className={'text-xl text-start font-extrabold font-custom capitalize text-dbleu'}>
                   Can I search for animals available for adoption without creating an account ?
                 </p>
                 <div
@@ -167,7 +167,7 @@ function Landing() {
             </div>
             <div className={'faq-1 bg-white p-4 rounded'}>
               <div className={"grid grid-cols-[1fr,40px] justify-between items-center gap-x-6"}>
-                <p className={"text-xl font-extrabold font-custom capitalize text-dbleu"}>
+                <p className={"text-xl text-start font-extrabold font-custom capitalize text-dbleu"}>
                   What social apps can I use to contact the users who have posted animals for adoption ?
                 </p>
                 <div
@@ -178,7 +178,7 @@ function Landing() {
             </div>
             <div className={"faq-1 bg-white p-4 rounded"}>
               <div className={"grid grid-cols-[1fr,40px] justify-between items-center gap-x-6"}>
-                <p className={"text-xl font-extrabold font-custom capitalize text-dbleu"}>
+                <p className={"text-xl text-start font-extrabold font-custom capitalize text-dbleu"}>
                   Are there any fees associated with posting or adopting animals on this platform ?
                 </p>
                 <div
@@ -226,9 +226,9 @@ function Landing() {
             <p className={"text-dbleu capitalize text-[14px] font-custom  "}>The best overall dog DNA test Embark Breed
               & Health Kit (view at Chewy) which provides overall dog you.</p>
             <div className={"flex gap-x-2 "}>
-              <a href={""}><FaGithub className={"text-2xl text-dbleu hover:text-orange transition-all duration-500"} />
+              <a href={"https://github.com/osamalmezouari"}><FaGithub className={"text-2xl text-dbleu hover:text-orange transition-all duration-500"} />
               </a>
-              <a href={""}> <FaLinkedin
+              <a href={"https://www.linkedin.com/in/oussama-lmezouari-307a32298/"}> <FaLinkedin
                 className={"text-2xl text-dbleu hover:text-orange transition-all duration-500"} /></a>
             </div>
           </div>
