@@ -3,9 +3,9 @@ import Landing from "./landing/landing.tsx";
 
 function App() {
   return (
-    <>
+    <div>
       <Landing />
-    </>
+    </div>
   )
 }
 

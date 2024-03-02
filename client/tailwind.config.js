@@ -37,7 +37,18 @@ module.exports = {
         "avatar":'url(https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=600)',
         "rev":'url(https://themebeyond.com/beyond/billu/wp-content/uploads/2023/03/adoption_shop_bg.jpg)',
         "revshap":'url(D:\\Oussama\\PROJECTS\\Atlas\\client\\public\\assets\\images\\testi_bg_shape01.png)',
-        "slideicon":'url(https://themebeyond.com/beyond/billu/wp-content/themes/billu/assets/img/icon/arrow_bg.png)'
+        "slideicon":'url(https://themebeyond.com/beyond/billu/wp-content/themes/billu/assets/img/icon/arrow_bg.png)',
+        "subscribe":"url(https://themebeyond.com/beyond/billu/wp-content/uploads/2023/02/BG.jpg)",
+        "devshap":"url(https://themebeyond.com/beyond/billu/wp-content/themes/billu/assets/img/bg/faq_bg_shape02.png)",
+        "React":"url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg)",
+        "NestJS":"url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg)",
+        "MySql":"url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg)",
+        "tailwind":"url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg)",
+        "npm":"url(https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg)",
+        "dogleft":"url(https://themebeyond.com/beyond/billu/wp-content/themes/billu/assets/img/images/footer_shape01.png)",
+        "dogright":"url(https://themebeyond.com/beyond/billu/wp-content/themes/billu/assets/img/images/footer_shape02.png)",
+        "footer":"url(https://themebeyond.com/beyond/billu/wp-content/uploads/2023/03/footer_bg.jpg)",
+        "copyright":"url(https://themebeyond.com/beyond/billu/wp-content/themes/billu/assets/img/bg/copyright_shape.png)"
       }
     },
   },
