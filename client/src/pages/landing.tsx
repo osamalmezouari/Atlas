@@ -1,8 +1,8 @@
-import Navbar from "../../components/navbar.tsx";
+import Navbar from "../components/navbar.tsx";
 import { MdOutlinePets } from "react-icons/md";
-import Searchbar from "../../components/searchbar.tsx";
+import Searchbar from "../components/searchbar.tsx";
 import { FaChevronCircleLeft, FaChevronCircleRight, FaGithub, FaLinkedin, FaPaw, FaPlus, FaStar } from "react-icons/fa";
-import ('../../styles/index.css')
+import ('../styles/index.css')
 
 function Landing() {
   return (

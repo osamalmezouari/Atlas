@@ -1,5 +1,5 @@
 import '../styles/App.css'
-import Landing from "./landing/landing.tsx";
+import Landing from "./landing.tsx";
 
 function App() {
   return (
