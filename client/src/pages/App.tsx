@@ -1,10 +1,11 @@
 import '../styles/App.css'
-import Landing from "./landing.tsx";
+// import Landing from "./landing.tsx";
+import Login from "./login.tsx";
 
 function App() {
   return (
     <div>
-      <Landing />
+      <Login />
     </div>
   )
 }
