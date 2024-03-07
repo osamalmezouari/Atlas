@@ -1,7 +1,9 @@
 import Navbar from "../components/navbar.tsx";
 import { MdOutlinePets } from "react-icons/md";
 import Searchbar from "../components/searchbar.tsx";
-import { FaChevronCircleLeft, FaChevronCircleRight, FaGithub, FaLinkedin, FaPaw, FaPlus, FaStar } from "react-icons/fa";
+import { FaChevronCircleLeft, FaChevronCircleRight , FaPaw, FaPlus } from "react-icons/fa";
+import Footer from "../components/footer.tsx";
+import Subscribe from "../components/subscribe.tsx";
 import ('../styles/index.css')
 
 function Landing() {
@@ -201,63 +203,9 @@ function Landing() {
       {/*</section>*/}
       {/*<div className={"w-full rotate-[180deg] h-6 bg-devshap bg-cover bg-center relative"}></div>*/}
       <div className={"w-full  bg-mysky rotate-180 -top-[10px] h-[16px] bg-revshap bg-cover bg-center relative"}></div>
-      <section className={" h-[450px] bg-rev flex max-md:p-1 justify-center items-center  p-12 "}>
-        <div
-          className={'bg-subscribe max-w-[1200px] p-16 max-md:p-5 h-max bg-cover grid grid-cols-[1fr,1fr,0.4fr] max-md:grid-cols-4 max-md:grid-rows-3 max-md:gap-y-4 grid-rows-1 w-full bg-orange items-center rounded-xl gap-x-3 '}>
-          <div className={'max-md:col-span-4 '}>
-            <p className={'text-4xl font-custom font-extrabold text-white '}>Newsletter For</p>
-            <p className={'flex items-center gap-x-2 text-white'}><FaStar />Do Not Show Your Email.</p>
-          </div>
-          <input type={'text'}
-                 className={'h-[63px] outline-none pl-4 max-md:row-start-2 max-md:col-span-4 border-2 border-transparent transition-all duration-500 hover:border-dbleu rounded-br-[35px] rounded-tl-[10px] rounded-bl-[10px] rounded-tr-[10px] max-md:rounded '}
-                 placeholder={'Enter Your Email ...'} />
-          <button
-            className={'bg-white h-[63px] text-orange font-bold max-md:col-span-2 max-md:row-start-3 max-md:col-start-2  capitalize font-custom relative -left-1 hover:bg-dbleu hover:text-white transition-all duration-700 p-2 rounded-br-[10px] rounded-tl-[35px] rounded-bl-[10px] rounded-tr-[10px] max-md:rounded '}>subscribe
-          </button>
-        </div>
-      </section>
+      <Subscribe />
       <div className={"w-full top-4 h-[16px] bg-revshap bg-cover bg-center relative"}></div>
-      <section className={"sec-footer bg-footer bg-cover bg-center bg-no-repeat h-full "}>
-        <div className={"dogright"}></div>
-        <div
-          className={"grid grid-cols-[200px,150px,150px] h-full max-w-[1000px] m-auto py-20 items-center justify-around max-md:grid-cols-1 max-md:gap-y-7 max-md:p-7"}>
-          <div className={" grid gap-y-4"}>
-            <div className={"bg-logo bg-center w-32 h-32 rounded-full bg-cover "}></div>
-            <p className={"text-dbleu capitalize text-[14px] font-custom  "}>The best overall dog DNA test Embark Breed
-              & Health Kit (view at Chewy) which provides overall dog you.</p>
-            <div className={"flex gap-x-2 "}>
-              <a href={"https://github.com/osamalmezouari"}><FaGithub className={"text-2xl text-dbleu hover:text-orange transition-all duration-500"} />
-              </a>
-              <a href={"https://www.linkedin.com/in/oussama-lmezouari-307a32298/"}> <FaLinkedin
-                className={"text-2xl text-dbleu hover:text-orange transition-all duration-500"} /></a>
-            </div>
-          </div>
-          <div className={"grid gap-y-3"}>
-            <div className={"font-bold font-custom text-xl text-dbleu"}>Our Policies</div>
-            <div>
-              <p className={"text-dbleu capitalize text-[14px] font-custom  "}>Privacy Policy</p>
-              <p className={"text-dbleu capitalize text-[14px] font-custom  "}>Terms and Conditions</p>
-              <p className={"text-dbleu capitalize text-[14px] font-custom  "}>Editorial Policy</p>
-              <p className={"text-dbleu capitalize text-[14px] font-custom  "}>Redressal Policy</p>
-            </div>
-          </div>
-          <div className={"grid gap-y-3"}>
-            <div className={"font-bold font-custom text-xl text-dbleu"}>Our Services
-            </div>
-            <div>
-              <p className={"text-dbleu capitalize text-[14px] font-custom  "}>Our Breeder</p>
-              <p className={"text-dbleu capitalize text-[14px] font-custom  "}>Our Adoption</p>
-              <p className={"text-dbleu capitalize text-[14px] font-custom  "}>Redressal Policy</p>
-              <p className={"text-dbleu capitalize text-[14px] font-custom  "}>Privacy Policy</p>
-            </div>
-          </div>
-        </div>
-        <div className={"w-full h-[26px]  bg-copyright relative bg-cover bg-center"}></div>
-      </section>
-      <div className={"w-full h-24 font-custom bg-dbleu relative text-center p-8 text-white "}>
-        <div> AllCopyright © 2024 All Rights Reserved By Atlas
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }
