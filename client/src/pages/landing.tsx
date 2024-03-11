@@ -28,7 +28,10 @@ function Landing() {
         </div>
       </section>
       <section className={'sec-2 relative about mx-auto w-full bg-about pb-20 bg-cover bg-center'}>
-        <Searchbar />
+        <div className={"searchbar relative  w-9/12  -top-16 z-50 pb-5 p-2 grid grid-rows-[auto,1fr] mx-auto text-white rounded-2xl mr-auto max-md:m-0 max-md:w-full"}>
+          <Searchbar />
+        </div>
+
         {/*<div className={'bg-about h-full w-full bg-cover bg-center absolute -z-40 max-sm:h-[1250px] max-md:h-[1100px] md:h-[1000px] lg:max-h-[1000px]'}></div>*/}
         <div
           className={'about-box rounded-xl bg-mywhite mt-12  m-auto bg-Aboutparent bg-center bg-contain w-9/12 p-12 h-max  grid grid-cols-[1.4fr,2fr] gap-[20px] max-md:grid-rows-[300px] max-md:grid-cols-1 max-md:p-2 max-md:w-[96%] ,max-w-7xl '}>

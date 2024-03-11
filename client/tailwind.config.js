@@ -51,7 +51,8 @@ module.exports = {
         "copyright":"url(https://themebeyond.com/beyond/billu/wp-content/themes/billu/assets/img/bg/copyright_shape.png)",
         "login":"url(https://images.unsplash.com/photo-1617813480301-28f5ebc0dfab?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
         "register":"url(https://images.pexels.com/photos/1309866/pexels-photo-1309866.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load)",
-        "adoptionlist" :"url(https://images.pexels.com/photos/1741205/pexels-photo-1741205.jpeg?auto=compress&cs=tinysrgb&w=600)"
+        "adoptionlist" :"url(https://images.pexels.com/photos/1741205/pexels-photo-1741205.jpeg?auto=compress&cs=tinysrgb&w=600)",
+        "path":"url(https://themebeyond.com/beyond/billu/wp-content/uploads/2023/03/H2B.jpg)"
       }
     },
   },
