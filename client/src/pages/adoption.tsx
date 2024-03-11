@@ -8,7 +8,7 @@ export default function Adoption() {
 
     return (
       <div className={'bg-about'}>
-          <Navbar />
+          <Navbar /> {/*remove the login and display the profile */}
           <div className={'grid grid-rows-[500px,auto,1fr] '}>
               <div className={'pathcontainer  bg-path bg-center bg-cover relative'}>
                   <div className={'relative px-16 flex items-center m-auto top-44 max-md:px-1'}>
