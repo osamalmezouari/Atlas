@@ -14,7 +14,7 @@ export default function Adoption() {
                   <div className={'relative px-16 flex items-center m-auto top-44 max-md:px-1'}>
                       <div>
                           <p
-                            className={"pathname bg-orange text-[9vh] font-custom font-bold text-white px-3 rounded-xl mb-4 "}>
+                            className={"pathname bg-orange text-[4vw] w-max font-custom font-bold text-white px-3 rounded-xl mb-4 "}>
                               Adoption
                           </p>
                           <p className={"fullpath flex gap-x-3"}>

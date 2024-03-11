@@ -47,7 +47,7 @@ function Navbar() {
             <p className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"}>Home</p>
             <p className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"}>About</p>
             <p className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"}>Adoption</p>
-            <p className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"}>Lost Paws </p>
+            {/*feature <p className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"}>Lost Paws </p>*/}
             <p className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"}>Contact</p>
           </div>
           <div className={"navpart-three col-start-6 flex gap-10 border-l-2 px-4 pl-3 items-center"}>
