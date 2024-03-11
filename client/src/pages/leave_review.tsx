@@ -16,11 +16,32 @@ function LeaveReview() {
             <option>
               Select the target
             </option>
+            <option>
+              Service
+            </option>
+            <option>
+              Community
+            </option>
           </select>
           <select
             className={"row-start-3 pl-2 outline-none h-12 border-2 text-orange cursor-pointer hover:border-dbleu duration-500 transition-all rounded"}>
             <option>
               Rate Point
+            </option>
+            <option>
+              1 / 5
+            </option>
+            <option>
+              2 / 5
+            </option>
+            <option>
+              3 / 5
+            </option>
+            <option>
+              4 / 5
+            </option>
+            <option>
+              5 / 5
             </option>
           </select>
           <textarea
