@@ -1,6 +1,8 @@
 import Navbar from '../components/navbar'
 import Searchbar from '../components/searchbar'
 import AdoptionListBox from '../components/adoption_list_box'
+import Footer from "../components/footer.tsx";
+import Subscribe from "../components/subscribe.tsx";
 
 export default function Adoption() {
 
@@ -54,6 +56,8 @@ export default function Adoption() {
 
                 </div>
             </div>
+            <Subscribe />
+            <Footer />
         </div>
     )
 }
