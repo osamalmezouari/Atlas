@@ -35,6 +35,7 @@ const Footer = ()=>{
             <p className={"text-dbleu capitalize text-[14px] font-custom  "}>Our Adoption</p>
             <p className={"text-dbleu capitalize text-[14px] font-custom  "}>Redressal Policy</p>
             <p className={"text-dbleu capitalize text-[14px] font-custom  "}>Privacy Policy</p>
+            <p>leave a review</p>
           </div>
         </div>
       </div>
