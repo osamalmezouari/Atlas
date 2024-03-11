@@ -9,7 +9,7 @@ function AdoptionListBox() {
   return (
     <>
       <div
-        className={'img drop-shadow-xl bg-adoptionlist border-[1px] border-dbleu -z-10 bg-cover w-full m-auto   bg-center rounded-tl-2xl rounded-tr-2xl h-[350px]'}>
+        className={'img drop-shadow-xl bg-adoptionlist border-[1px] border-dbleu -z-10 bg-cover w-full m-auto   bg-center rounded-tl rounded-tr h-[350px]'}>
         <div className={'w-full h-full bg-dbleu opacity-20 flex items-center justify-center'}>
           <button
             className={"capitalize text-xl text-white row-start-3 flex gap-2 items-center bg-orange w-fit py-2 px-2 rounded-xl opacity-[150] cursor-pointer transition-all duration-700   hover:bg-dbleu  "}>Love
@@ -19,7 +19,7 @@ function AdoptionListBox() {
         </div>
       </div>
       <div
-        className={"adoption_info drop-shadow-xl border-[1px] border-dbleu  w-full m-auto rounded-bl-2xl rounded-br-2xl relative bg-white px-2 py-4 bg-findshap bg-contain"}>
+        className={"adoption_info drop-shadow-xl border-[1px] border-dbleu  w-full m-auto rounded-bl rounded-br relative bg-white px-2 py-4 bg-findshap bg-contain"}>
         <p
           className={"name text-center font-custom font-bold text-3xl text-dbleu p-2 hover:text-orange transition-all duration-700 cursor-pointer "}>Mars</p>
         <div className={'flex justify-between'}>
