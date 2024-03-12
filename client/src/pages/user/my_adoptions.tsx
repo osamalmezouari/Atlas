@@ -30,15 +30,15 @@ function My_adoptions() {
               Adoptions
             </div>
           </div>
-          <table className={'table-of-adoptions max-h-[200px] overflow-y-scroll border-b-2 border-white w-full '}>
-            <tr className={"text-center bg-white p-4 rounded-tl rounded-tr font-bold font-custom capitalize text-dbleu"}>
+          <table className={'table-of-adoptions  max-h-[200px] overflow-y-scroll border-b-2 border-white w-full '}>
+            <tr className={"text-center bg-white h-10 p-4 rounded-tl rounded-tr font-bold font-custom capitalize text-dbleu"}>
               <td>name</td>
               <td>adopted</td>
               <td>actions</td>
             </tr>
             {/*render the elements from the database*/
               <tr
-                className={"bg-gray-300 text-center border-b-2 border-white font-bold font-custom capitalize text-dbleu "}>
+                className={"bg-gray-300 h-12 text-center border-b-2 border-white font-bold font-custom capitalize text-dbleu "}>
                 <td className={'text-mywhite underline cursor-pointer'}>Mars</td>
                 <td><div className={'flex justify-center items-center'}><FaXmark className={'w-6 h-4 bg-red-500 p-1 rounded-full text-white cursor-pointer'} /></div></td>
                 <td>
