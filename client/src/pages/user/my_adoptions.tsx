@@ -30,36 +30,26 @@ function My_adoptions() {
               Adoptions
             </div>
           </div>
-          <div className={'table-of-adoptions max-h-[200px] overflow-y-scroll border-b-2 border-white  '}>
-            <div
-              className={"grid grid-cols-3 text-center bg-white p-4 rounded-tl rounded-tr font-bold font-custom capitalize text-dbleu"}>
-              <div className={''}>name</div>
-              <div>adopted</div>
-              <div>actions</div>
-            </div>
+          <table className={'table-of-adoptions max-h-[200px] overflow-y-scroll border-b-2 border-white w-full '}>
+            <tr className={"text-center bg-white p-4 rounded-tl rounded-tr font-bold font-custom capitalize text-dbleu"}>
+              <td>name</td>
+              <td>adopted</td>
+              <td>actions</td>
+            </tr>
             {/*render the elements from the database*/
-              <div
-                className={"grid bg-gray-300 grid-cols-3 text-center border-b-2 border-white p-4 font-bold font-custom capitalize text-dbleu "}>
-                <div className={'text-mywhite underline cursor-pointer'}>Mars</div>
-                <div className={'flex items-center justify-center '}><FaXmark
-                  className={'w-6 h-4 bg-red-500 p-1 rounded-full text-white cursor-pointer'} /></div>
-                <div className={'flex items-center justify-center gap-x-3'}>
-                  <AiFillDelete className={' w-6 h-4 bg-red-500 text-white p-1 rounded-full cursor-pointer'} />
-                  <FaEdit className={'w-6 h-4 bg-green-400 p-1 rounded-full text-white cursor-pointer'} />
-                </div>
-              </div>
+              <tr
+                className={"bg-gray-300 text-center border-b-2 border-white font-bold font-custom capitalize text-dbleu "}>
+                <td className={'text-mywhite underline cursor-pointer'}>Mars</td>
+                <td><div className={'flex justify-center items-center'}><FaXmark className={'w-6 h-4 bg-red-500 p-1 rounded-full text-white cursor-pointer'} /></div></td>
+                <td>
+                  <div className={'flex items-center justify-center gap-x-2'}>
+                    <AiFillDelete className={' w-6 h-4 bg-red-500 text-white p-1 rounded-full cursor-pointer'} />
+                    <FaEdit className={'w-6 h-4 bg-green-400 p-1 rounded-full text-white cursor-pointer'} />
+                  </div>
+                </td>
+              </tr>
             }
-            <div
-              className={"grid bg-gray-300 grid-cols-3 text-center border-b-2 border-white p-4 font-bold font-custom capitalize text-dbleu "}>
-              <div className={'text-mywhite underline cursor-pointer'}>Mars</div>
-              <div className={'flex items-center justify-center '}><FaXmark
-                className={'w-6 h-4 bg-red-500 p-1 rounded-full text-white cursor-pointer'} /></div>
-              <div className={'flex items-center justify-center gap-x-3'}>
-                <AiFillDelete className={' w-6 h-4 bg-red-500 text-white p-1 rounded-full cursor-pointer'} />
-                <FaEdit className={'w-6 h-4 bg-green-400 p-1 rounded-full text-white cursor-pointer'} />
-              </div>
-            </div>
-          </div>
+          </table>
         </div>
       </div>
     </div>
