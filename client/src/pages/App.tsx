@@ -1,10 +1,11 @@
 import '../styles/App.css'
-import Personal from "./user/personal.tsx";
+// import Personal from "./user/personal.tsx";
+import My_adoptions from "./user/my_adoptions.tsx";
 
 function App() {
   return (
     <div>
-      <Personal />
+      <My_adoptions />
     </div>
   )
 }
