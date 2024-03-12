@@ -14,7 +14,7 @@ function Landing() {
         <div className={'home-image bg-home bg-center bg-cover absolute -z-20 w-full h-screen transform'}></div>
         <div
           className={'home-text-box w-11/12 relative top-56 text-[6vh] font-bold font-custom grid grid-cols-[1fr,800px] grid-rows-[1fr,auto,40px] px-2 text-mywhite pl-5 '}>
-          <p className={'highlighted-text leading-snug'}>Find Your <span
+          <p className={'highlighted-text leading-snug '}>Find Your <span
             className={'px-2 bg-orange border-2 border-transparent rounded-3xl bg-findshap bg-contain'}>Perfect</span> Companion!
           </p>
           <p className={'mb-5 sub-text row-start-2 font-custom font-bold text-xl capitalize pt-2'}>Discover your new
@@ -54,7 +54,7 @@ function Landing() {
             <p className={'highlited title text-dbleu font-custom font-black text-[30px] tracking-wide'}>Finding Forever
               Homes for Every Pet</p>
             <p className={'description text-dbleu font-custom pl-16 max-md:pl-0'}>
-              Atlas, dedicated to Morocco, provides sanctuary to every animal within the nation's borders. Our mission:
+              Atlas, dedicated to Morocco, provides sanctuary to every animal within the nation's borders. Our mission
               simplify adoption,
               enabling Moroccans to effortlessly find their ideal companion and take action for animal welfare
             </p>
@@ -69,7 +69,7 @@ function Landing() {
             <div
               className={"Co-founder max-md:pl-0 pl-20 pt-4 grid grid-cols-[auto,1fr] gap-x-3 font-custom font-bold text-dbleu grid-rows-2"}>
               <div
-                className={"bg-avatar row-span-2 col-start-1 bg-center bg-cover rounded-full w-14 h-14 bg-dbleu"}></div>
+                className={"bg-avatar row-span-2 col-start-1 bg-cover bg-top rounded-full w-14 h-14 bg-dbleu"}></div>
               <p className={"name col-start-2 capitalize"}> oussama lmezouari</p>
               <p className={'role font-normal'}>Atlas Creator</p>
             </div>
