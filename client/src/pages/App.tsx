@@ -1,14 +1,10 @@
 import '../styles/App.css'
-<<<<<<< HEAD
-// import Personal from "./user/personal.tsx";
-=======
->>>>>>> fix_adoption_table
-import My_adoptions from "./user/my_adoptions.tsx";
+import Manage_users from "./admin/manage_users.tsx";
 
 function App() {
   return (
     <div>
-      <My_adoptions />
+      <Manage_users />
     </div>
   )
 }
