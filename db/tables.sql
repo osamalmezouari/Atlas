@@ -22,12 +22,13 @@ create table adoption(
     adopted_Date         varchar(100)         null,
     animal_Name          varchar(10)          null,
     animal_Race          varchar(10)          null,
-    animal_Born_date     datetime             null,
+    Old     number             not null,
     animal_Gender        varchar(10)          null,
     animal_Class         varchar(50)          null,
     description          text                 null,
     weight               decimal(9, 2)        null,
     health_Status        varchar(50)          null,
+    vaccinated
     castrate             tinyint(1) default 0 null,
     constraint adoption_user_user_ID_fk
         foreign key (user_ID) references users (user_ID)
