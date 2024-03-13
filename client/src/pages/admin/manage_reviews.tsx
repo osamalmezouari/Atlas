@@ -1,5 +1,5 @@
 import Navbar from "../../components/navbar.tsx";
-import { FaBars, FaEdit } from "react-icons/fa";
+import { FaBars} from "react-icons/fa";
 import { AiFillDelete} from "react-icons/ai";
 
 function  Manage_Reviews() {
@@ -44,7 +44,6 @@ function  Manage_Reviews() {
                 <td>
                   <div className={'flex items-center justify-center gap-x-2'}>
                     <AiFillDelete className={' w-6 h-4 bg-red-500 text-white p-1 rounded-full cursor-pointer'} />
-                    <FaEdit className={'w-6 h-4 bg-green-400 p-1 rounded-full text-white cursor-pointer'} />
                   </div>
                 </td>
               </tr>
