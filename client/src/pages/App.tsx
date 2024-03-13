@@ -1,10 +1,10 @@
 import '../styles/App.css'
-import Manage_users from "./admin/manage_users.tsx";
+import Dream from "./user/dream.tsx";
 
 function App() {
   return (
     <div>
-      <Manage_users />
+      <Dream />
     </div>
   )
 }
