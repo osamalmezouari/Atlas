@@ -1,6 +1,7 @@
 import Navbar from "../../components/navbar.tsx";
 import { FaBars } from "react-icons/fa";
 import { FaHeartCircleMinus } from "react-icons/fa6";
+import { GrView } from "react-icons/gr";
 
 function Dream() {
   return (
@@ -29,7 +30,7 @@ function Dream() {
               Paws Cart
             </div>
             <div
-              className={"bg-dbleu cursor-pointer hover:bg-orange transition-all duration-500 p-3 rounded mb-3 text-white font-custom font-bold"}>My
+              className={"bg-dbleu cursor-pointer hover:bg-orange transition-all duration-500 p-3 rounded text-white font-custom font-bold"}>My
               Dream Pets
             </div>
           </div>
@@ -50,8 +51,12 @@ function Dream() {
               </div>
               <button className={"text-dbleu flex justify-between"}>
                 <p></p>
-                <FaHeartCircleMinus
-                  className={'self-end text-dbleu p-1 w-8 h-8 rounded border-2 border-dbleu hover:bg-orange hover:border-orange hover:text-white transition-all duration-500 cursor-pointer '} />
+                <div className={'flex gap-x-1'}>
+                  <GrView
+                    className={'self-end text-dbleu p-1 w-8 h-8 rounded border-2 border-dbleu hover:bg-orange hover:border-orange hover:text-white transition-all duration-500 cursor-pointer '}/>
+                  <FaHeartCircleMinus
+                    className={'self-end text-dbleu p-1 w-8 h-8 rounded border-2 border-dbleu hover:bg-orange hover:border-orange hover:text-white transition-all duration-500 cursor-pointer '} />
+                </div>
               </button>
             </div>
           </div>
