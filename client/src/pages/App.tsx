@@ -1,10 +1,11 @@
 import '../styles/App.css'
-import Dream from "./user/dream.tsx";
+// import Dream from "./user/dream.tsx";
+import Adoptiondetails from "./adoptiondetails.tsx";
 
 function App() {
   return (
     <div>
-      <Dream />
+      <Adoptiondetails />
     </div>
   )
 }
