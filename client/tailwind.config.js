@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       colors: {
         orange: '#ef6f18',
-        wblue: '#1e4b57',
+        wblue: '#143556',
         dbleu: '#0a303a',
         coffe: 'rgb(255,245,203)',
         mywhite: '#fff',
@@ -53,7 +53,8 @@ module.exports = {
         "register":"url(https://images.pexels.com/photos/1309866/pexels-photo-1309866.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load)",
         "adoptionlist" :"url(https://images.pexels.com/photos/1741205/pexels-photo-1741205.jpeg?auto=compress&cs=tinysrgb&w=600)",
         "path":"url(https://themebeyond.com/beyond/billu/wp-content/uploads/2023/03/H2B.jpg)",
-        "map":"url(D:\\Oussama\\PROJECTS\\Atlas\\client\\public\\assets\\images\\map.png)"
+        "map":"url(D:\\Oussama\\PROJECTS\\Atlas\\client\\public\\assets\\images\\map.png)",
+        "subscribeimg" :"url('https://themebeyond.com/beyond/billu/wp-content/themes/billu/assets/img/icon/sn_icon.png')"
       }
     },
   },
