@@ -12,18 +12,6 @@ function LeaveReview() {
           className={"bg-rev bg-contain grid-cols-1 grid grid-rows w-[450px] h-[450px] rounded-xl p-4 hover:shadow-2xl transition-all duration-1000 border-orange border-2 "}>
           {/*<div className={'bg-about w-[140px] h-[140px] rounded-full absolute top-20 flex items-center justify-center '}><div className={'bg-logo bg-cover bg-center border-2 border-orange w-[125px] h-[125px] rounded-full  '}></div></div>*/}
           <select
-            className={"row-start-2 pl-2 outline-none h-12 border-2 text-orange cursor-pointer hover:border-dbleu duration-500 transition-all rounded"}>
-            <option>
-              Select the target
-            </option>
-            <option>
-              Service
-            </option>
-            <option>
-              Community
-            </option>
-          </select>
-          <select
             className={"row-start-3 pl-2 outline-none h-12 border-2 text-orange cursor-pointer hover:border-dbleu duration-500 transition-all rounded"}>
             <option>
               Rate Point
