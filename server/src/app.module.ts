@@ -7,15 +7,15 @@ import { ReviewController } from "./reviews/review.controller";
 import { ReviewService } from "./reviews/review.service";
 import { ReviewModule } from "./reviews/review.module";
 import { AdoptionModule } from "./adoption/adoption.module";
-import { SocialService } from "./social/social.service";
+import { SocialService } from "./users/social/social.service";
 import { RolesModule } from "./roles/roles.module";
 import { RolesService } from "./roles/roles.service";
 import { RolesController } from "./roles/roles.controller";
 import { DonationModule } from "./donation/donation.module";
 import { DonationService } from "./donation/donation.service";
 import { DonationController } from "./donation/donation.controller";
-import { SocialModule } from "./social/social.module";
-import { SocialController } from "./social/social.controller";
+import { SocialModule } from "./users/social/social.module";
+import { SocialController } from "./users/social/social.controller";
 import { WeblinkModule } from "./weblinks/weblinks.module";
 
 @Module({
