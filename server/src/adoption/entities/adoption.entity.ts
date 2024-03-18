@@ -1,4 +1,13 @@
-import { Column, Decimal128, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Decimal128,
+  Entity,
+  ManyToMany,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from "typeorm";
+import { User } from "../../users/entities/user.entity";
+import { Image } from "./images.entity";
 
 @Entity()
 export class Adoption {
@@ -30,4 +39,10 @@ export class Adoption {
   latitude: Number;
   @Column({ type: "boolean", nullable: false })
   castrate: Boolean;
+
+  @ManyToOne((type) => User, (user) => user.adoption)
+  user: User;
+
+  @ManyToMany((type) => Image, (image) => image.adoption)
+  image: Image[];
 }

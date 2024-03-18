@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "./user.entity";
 
 @Entity()
 export class NetworkLinks {
@@ -7,9 +8,12 @@ export class NetworkLinks {
   @Column({ nullable: true })
   facebook: String;
   @Column({ nullable: true })
-  whatssap: String;
+  WhatsApp: String;
   @Column({ nullable: true })
   phone: String;
   @Column({ nullable: false })
   email: string;
+
+  @ManyToOne((type) => User, (user) => user.networklinks)
+  user: User;
 }

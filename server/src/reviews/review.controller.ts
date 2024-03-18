@@ -8,14 +8,14 @@ import {
   Body,
 } from "@nestjs/common";
 import { ReviewService } from "./review.service";
-import { Reviews } from "./entities/review.entity";
+import { Review } from "./entities/review.entity";
 
 @Controller("reviews")
 export class ReviewController {
   constructor(private readonly reviewService: ReviewService) {}
 
   @Get()
-  findAll(): Promise<Reviews[]> {
+  findAll(): Promise<Review[]> {
     return this.reviewService.findAll();
   }
   // @Post()

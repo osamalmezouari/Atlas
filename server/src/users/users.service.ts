@@ -2,17 +2,24 @@ import { HttpStatus, Injectable, NotFoundException } from "@nestjs/common";
 import * as mysql from "mysql";
 import { Repository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Users } from "./entities/user.entity";
+import { User } from "./entities/user.entity";
 
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectRepository(Users)
-    private readonly usersRepository: Repository<Users>,
+    @InjectRepository(User)
+    private readonly usersRepository: Repository<User>,
   ) {}
 
-  async findAll(): Promise<Users[]> {
-    return await this.usersRepository.find();
+  async findAll(): Promise<User[]> {
+    return await this.usersRepository.find({
+      relations: {
+        adoption: true,
+        review: true,
+        role: true,
+        networklinks: true,
+      },
+    });
   }
   async findOne(id: number) {
     const user = await this.usersRepository.findOne({ where: { id } });

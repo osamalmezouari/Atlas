@@ -1,17 +1,17 @@
 import { HttpStatus, Injectable } from "@nestjs/common";
 import * as mysql from "mysql";
-import { Reviews } from "./entities/review.entity";
+import { Review } from "./entities/review.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 
 @Injectable()
 export class ReviewService {
   constructor(
-    @InjectRepository(Reviews)
-    private readonly ReviewsRepository: Repository<Reviews>,
+    @InjectRepository(Review)
+    private readonly ReviewsRepository: Repository<Review>,
   ) {}
 
-  findAll(): Promise<Reviews[]> {
+  findAll(): Promise<Review[]> {
     return this.ReviewsRepository.find();
   }
 
