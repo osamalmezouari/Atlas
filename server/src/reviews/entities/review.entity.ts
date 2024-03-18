@@ -1,6 +1,11 @@
-export class Review {
-  review_ID: number;
-  user_ID: number;
-  comment: string | null;
-  rating: number;
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+
+@Entity()
+export class Reviews {
+  @PrimaryGeneratedColumn()
+  id: Number;
+  @Column({ nullable: false })
+  comment: String;
+  @Column({ nullable: false })
+  rating: Number;
 }
