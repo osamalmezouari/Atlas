@@ -1,11 +1,12 @@
 import '../styles/App.css'
 // import Dream from "./user/dream.tsx";
-import Adoptiondetails from "./adoptiondetails.tsx";
+// import Adoptiondetails from "./adoptiondetails.tsx";
+import Landing from "./landing.tsx";
 
 function App() {
   return (
     <div>
-      <Adoptiondetails />
+      <Landing />
     </div>
   )
 }
