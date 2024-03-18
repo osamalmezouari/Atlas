@@ -1,47 +1,30 @@
 import { Module } from "@nestjs/common";
-import { AppController } from "./app.controller";
+import { TypeOrmModule } from "@nestjs/typeorm";
 import { AppService } from "./app.service";
-import { UsersController } from "./users/users.controller";
-import { UsersService } from "./users/users.service";
-import { ReviewController } from "./reviews/review.controller";
-import { ReviewService } from "./reviews/review.service";
-import { ReviewModule } from "./reviews/review.module";
+import { AppController } from "./app.controller";
 import { AdoptionModule } from "./adoption/adoption.module";
-import { SocialService } from "./users/social/social.service";
+import { UsersModule } from "./users/users.module";
 import { RolesModule } from "./roles/roles.module";
-import { RolesService } from "./roles/roles.service";
-import { RolesController } from "./roles/roles.controller";
-import { DonationModule } from "./donation/donation.module";
-import { DonationService } from "./donation/donation.service";
-import { DonationController } from "./donation/donation.controller";
-import { SocialModule } from "./users/social/social.module";
-import { SocialController } from "./users/social/social.controller";
-import { WeblinkModule } from "./weblinks/weblinks.module";
+import { ReviewModule } from "./reviews/review.module";
 
 @Module({
   imports: [
-    ReviewModule,
+    TypeOrmModule.forRoot({
+      type: "mysql",
+      host: "localhost",
+      port: 3306,
+      username: "root",
+      password: "",
+      database: "animals_adoption",
+      autoLoadEntities: true,
+      synchronize: true,
+    }),
     AdoptionModule,
-    SocialModule,
-    WeblinkModule,
-    DonationModule,
+    UsersModule,
     RolesModule,
+    ReviewModule,
   ],
-  controllers: [
-    AppController,
-    UsersController,
-    ReviewController,
-    SocialController,
-    DonationController,
-    RolesController,
-  ], // Add your UsersController to the controllers array
-  providers: [
-    AppService,
-    UsersService,
-    ReviewService,
-    SocialService,
-    DonationService,
-    RolesService,
-  ], // Add your UsersService to the providers array
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
