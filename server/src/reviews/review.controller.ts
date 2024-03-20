@@ -9,6 +9,7 @@ import {
 } from "@nestjs/common";
 import { ReviewService } from "./review.service";
 import { Review } from "./entities/review.entity";
+import { CreateReviewDto } from "./dto/create-review.dto";
 
 @Controller("reviews")
 export class ReviewController {
@@ -18,14 +19,13 @@ export class ReviewController {
   findAll(): Promise<Review[]> {
     return this.reviewService.findAll();
   }
-  // @Post()
-  // create(@Body() review: Review): Promise<void> {
-  //   return this.reviewService.create(review);
-  // }
-  //
+  @Post()
+  create(@Body() createreviewdto: CreateReviewDto): Promise<Review> {
+    return this.reviewService.create(createreviewdto);
+  }
 
   @Delete(":id")
   delete(@Param("id") id: string) {
-    return this.reviewService.delete(+id);
+    return this.reviewService.delete(id);
   }
 }
