@@ -20,12 +20,12 @@ export class ReviewController {
     return this.reviewService.findAll();
   }
   @Post()
-  create(@Body() createreviewdto: CreateReviewDto): Promise<Review> {
-    return this.reviewService.create(createreviewdto);
+  create(@Body() createReviewDto: CreateReviewDto): Promise<Review> {
+    return this.reviewService.create(createReviewDto);
   }
 
   @Delete(":id")
-  delete(@Param("id") id: string) {
+  delete(@Param("id") id: String) {
     return this.reviewService.delete(id);
   }
 }
