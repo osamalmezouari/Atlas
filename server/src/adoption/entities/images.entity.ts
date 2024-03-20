@@ -13,7 +13,7 @@ import { v4 as uuid } from "uuid";
 export class Image {
   @BeforeInsert()
   generateuuid() {
-    this.id = uuid;
+    this.id = uuid();
   }
   @PrimaryGeneratedColumn("uuid")
   id: String;
