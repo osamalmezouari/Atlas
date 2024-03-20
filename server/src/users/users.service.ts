@@ -1,8 +1,9 @@
 import { HttpStatus, Injectable, NotFoundException } from "@nestjs/common";
-import * as mysql from "mysql";
 import { Repository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
 import { User } from "./entities/user.entity";
+import { CreateUserDto } from "./dto/create-user.dto";
+import { UpdateUserDto } from "./dto/update-user.dto";
 
 @Injectable()
 export class UsersService {
@@ -10,19 +11,29 @@ export class UsersService {
     @InjectRepository(User)
     private readonly usersRepository: Repository<User>,
   ) {}
-
   async findAll(): Promise<User[]> {
     return await this.usersRepository.find({
       relations: {
-        adoption: true,
+        adoption: {
+          image: true,
+        },
         review: true,
         role: true,
-        networklinks: true,
       },
     });
   }
-  async findOne(id: number) {
-    const user = await this.usersRepository.findOne({ where: { id } });
+  async findOne(id: String) {
+    const user = await this.usersRepository.findOne({
+      where: { id },
+      relations: {
+        adoption: {
+          image: true,
+        },
+        review: true,
+        role: true,
+      },
+    });
+
     if (!user) {
       throw new NotFoundException(
         `could not find a user with id = ${id} ${HttpStatus.NOT_FOUND} `,
@@ -31,39 +42,20 @@ export class UsersService {
     return user;
   }
 
-  // create(user: users): Promise<void> {
-  //   return new Promise((resolve, reject) => {
-  //     this.connection.query(
-  //       'INSERT INTO users SET ?',
-  //       user,
-  //       (error, results, fields) => {
-  //         if (error) {
-  //           reject(error);
-  //           return;
-  //         }
-  //         resolve();
-  //       },
-  //     );
-  //   });
-  // }
-  //
-  // update(id: number, updatedUser: users): Promise<void> {
-  //   return new Promise((resolve, reject) => {
-  //     this.connection.query(
-  //       'UPDATE users SET ? WHERE user_ID = ?',
-  //       [updatedUser, id],
-  //       (error, results, fields) => {
-  //         if (error) {
-  //           reject(error);
-  //           return;
-  //         }
-  //         resolve();
-  //       },
-  //     );
-  //   });
-  // }
+  create(createUserDto: CreateUserDto): Promise<User> {
+    this.usersRepository.create(createUserDto);
+    return this.usersRepository.save(createUserDto);
+  }
 
-  async delete(id: number) {
+  async update(id: String, updatedUser: UpdateUserDto) {
+    await this.usersRepository.preload(updatedUser);
+    return this.usersRepository.save({
+      id,
+      ...updatedUser,
+    });
+  }
+
+  async delete(id: String) {
     const user = await this.findOne(id);
     return await this.usersRepository.remove(user);
   }
