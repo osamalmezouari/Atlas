@@ -1,20 +1,41 @@
-import { Body, Controller, Delete, Get, Param, Post } from "@nestjs/common";
-import { CreateRoleDto } from "./dto/create-role.dto";
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from "@nestjs/common";
 import { RolesService } from "./roles.service";
+import { CreateRoleDto } from "./dto/create-role.dto";
+import { UpdateRoleDto } from "./dto/update-role.dto";
 
 @Controller("roles")
 export class RolesController {
   constructor(private readonly rolesService: RolesService) {}
   @Get()
   findAll() {
-    this.rolesService.findAll();
+    return this.rolesService.findAll();
   }
-  // @Post()
-  // create(@Body() createroledto: CreateRoleDto) {
-  //   return this.rolesService.create();
-  // }
-  @Delete()
-  delete(@Param(":id") id: number) {
-    return this.rolesService.delete(+id);
+
+  @Get(":id")
+  async findOne(@Param("id") id: String) {
+    console.log(id);
+    return await this.rolesService.findOne(id);
+  }
+  @Post()
+  async create(@Body() createroledto: CreateRoleDto) {
+    return this.rolesService.create(createroledto);
+  }
+
+  @Put(":id")
+  async update(@Param("id") id: String, @Body() updateroledto: UpdateRoleDto) {
+    console.log(id);
+    return this.rolesService.update(id, updateroledto);
+  }
+  @Delete(":id")
+  delete(@Param("id") id: String) {
+    return this.rolesService.delete(id);
   }
 }
