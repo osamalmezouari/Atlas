@@ -1,4 +1,5 @@
 import { Column, PrimaryGeneratedColumn } from "typeorm";
+import { Image } from "../entities/images.entity";
 
 export class CreateAdoptionDto {
   @Column({ nullable: false })
@@ -23,4 +24,6 @@ export class CreateAdoptionDto {
   health: String;
   @Column({ nullable: false })
   castrate: Boolean;
+  @Column({ nullable: false })
+  image: String[];
 }
