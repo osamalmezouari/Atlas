@@ -9,6 +9,8 @@ import {
 } from "@nestjs/common";
 import { UsersService } from "./users.service";
 import { User } from "./entities/user.entity";
+import { CreateUserDto } from "./dto/create-user.dto";
+import { UpdateUserDto } from "./dto/update-user.dto";
 
 @Controller("users")
 export class UsersController {
@@ -19,22 +21,19 @@ export class UsersController {
   }
   @Get(":id")
   async findOne(@Param("id") id: string) {
-    return await this.usersService.findOne(+id);
+    return await this.usersService.findOne(id);
   }
 
-  // @Post()
-  // async create(@Body() user: users): Promise<void> {
-  //   await this.usersService.create(user);
-  // }
-  // @Put(':id')
-  // async update(
-  //   @Param('id') id: number,
-  //   @Body() updatedUser: users,
-  // ): Promise<void> {
-  //   await this.usersService.update(id, updatedUser);
-  // }
+  @Post()
+  async create(@Body() createUserDto: CreateUserDto): Promise<User> {
+    return this.usersService.create(createUserDto);
+  }
+  @Put(":id")
+  async update(@Param("id") id: String, @Body() updatedUser: UpdateUserDto) {
+    return await this.usersService.update(id, updatedUser);
+  }
   @Delete(":id")
-  async delete(@Param("id") id: number): Promise<void> {
-    await this.usersService.delete(id);
+  async delete(@Param("id") id: String) {
+    return await this.usersService.delete(id);
   }
 }
