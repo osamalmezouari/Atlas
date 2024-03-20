@@ -3,6 +3,7 @@ import { Repository } from "typeorm";
 import { Role } from "./entities/roles.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { UpdateRoleDto } from "./dto/update-role.dto";
+import { CreateRoleDto } from "./dto/create-role.dto";
 
 @Injectable()
 export class RolesService {
@@ -17,7 +18,9 @@ export class RolesService {
   async findOne(id: String): Promise<Role> {
     return await this.rolesrepository.findOne({ where: { id } });
   }
-  async create(createroledto) {
+
+  async create(createroledto: CreateRoleDto) {
+    console.log(createroledto);
     this.rolesrepository.create({
       ...createroledto,
     });
@@ -45,5 +48,9 @@ export class RolesService {
   async delete(id: String) {
     const role = await this.rolesrepository.findOne({ where: { id } });
     return this.rolesrepository.remove(role);
+  }
+
+  preloadrolebyame(name: String) {
+    return this.rolesrepository.findOne({ where: { Role: name } });
   }
 }
