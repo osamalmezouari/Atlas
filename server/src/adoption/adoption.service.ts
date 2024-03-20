@@ -6,6 +6,7 @@ import { CreateAdoptionDto } from "./dto/create-adoption.dto";
 import { Image } from "./entities/images.entity";
 import { UpdateAdoptionDto } from "./dto/update-adoption.dto";
 import * as http from "http";
+import { UsersService } from "../users/users.service";
 
 @Injectable()
 export class AdoptionService {
@@ -14,6 +15,7 @@ export class AdoptionService {
     private readonly adoptionRepository: Repository<Adoption>,
     @InjectRepository(Image)
     private readonly imageRepository: Repository<Image>,
+    private readonly usersService: UsersService,
   ) {}
 
   findAll(): Promise<Adoption[]> {
@@ -24,7 +26,7 @@ export class AdoptionService {
     });
   }
 
-  async findOne(id: String) {
+  async findOne(id: String): Promise<Adoption> {
     const Adoption = await this.adoptionRepository.findOne({ where: { id } });
     if (!Adoption) {
       throw new NotFoundException(
@@ -35,33 +37,36 @@ export class AdoptionService {
   }
 
   async create(createAdoptionDto: CreateAdoptionDto) {
+    const { user } = createAdoptionDto;
+    const assocuser = await this.usersService.findOne(user);
     const image = await Promise.all(
       createAdoptionDto.image.map((Cloudurl) => this.preloadImage(Cloudurl)),
     );
-    const obj = {
-      ...createAdoptionDto,
-      image,
-    };
-
-    console.log(obj);
     this.adoptionRepository.create({
       ...createAdoptionDto,
       image,
+      user: assocuser,
     });
     return this.adoptionRepository.save({
       ...createAdoptionDto,
       image,
+      user: assocuser,
     });
   }
 
   async update(id: String, updatedAdoption: UpdateAdoptionDto) {
-    const image = await Promise.all(
-      updatedAdoption.image.map((Cloudurl) => this.preloadImage(Cloudurl)),
-    );
+    const { user } = updatedAdoption;
+    const assocuser = await this.usersService.findOne(user);
+    const image =
+      updatedAdoption.image &&
+      (await Promise.all(
+        updatedAdoption.image.map((Cloudurl) => this.preloadImage(Cloudurl)),
+      ));
     const updatedadoption = await this.adoptionRepository.preload({
       id: id,
       ...updatedAdoption,
       image,
+      user: assocuser,
     });
     if (!updatedadoption) {
       throw new Error(
@@ -72,14 +77,19 @@ export class AdoptionService {
       id: id,
       ...updatedAdoption,
       image,
+      user: assocuser,
     });
   }
 
   async delete(id: String) {
-    const Adoption = await this.findOne(id);
-    this.imageRepository.query(`DELETE FROM Image WHERE adoptionId = ${id}`);
-    return this.adoptionRepository.remove(Adoption);
+    const adoption = await this.findOne(id);
+    if (!adoption) {
+      throw new Error("Adoption not found");
+    }
+    await this.imageRepository.delete({ adoption });
+    return await this.adoptionRepository.remove(adoption);
   }
+
   async preloadImage(Cloudurl) {
     const Image = await this.imageRepository.findOne({ where: { Cloudurl } });
     if (Image) {
