@@ -1,4 +1,5 @@
 import {
+  BeforeInsert,
   Column,
   Entity,
   ManyToMany,
@@ -9,21 +10,30 @@ import {
 import { JoinTable } from "typeorm/browser";
 import { Adoption } from "../../adoption/entities/adoption.entity";
 import { Role } from "../../roles/entities/roles.entity";
-import { NetworkLinks } from "./networklinks.entity";
 import { Review } from "../../reviews/entities/review.entity";
-
+import { v4 as uuid } from "uuid";
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn()
-  id: Number;
-  @Column({ nullable: false })
+  @BeforeInsert()
+  getuuid() {
+    this.id = uuid;
+  }
+  @PrimaryGeneratedColumn("uuid")
+  id: String;
+  @Column({ nullable: false, unique: true })
   firstname: String;
-  @Column({ nullable: false })
+  @Column({ nullable: false, unique: true })
   lastname: String;
-  @Column({ nullable: false })
+  @Column({ nullable: false, unique: true })
   email: String;
   @Column({ nullable: false })
   password: String;
+  @Column({ nullable: true, unique: true })
+  facebook: String;
+  @Column({ nullable: true, unique: true })
+  WhatsApp: String;
+  @Column({ nullable: true, unique: true })
+  phone: String;
   @Column({ default: true })
   active: Boolean;
 
@@ -32,11 +42,6 @@ export class User {
 
   @ManyToOne((type) => Role, (role) => role.user, { cascade: true })
   role: Role;
-
-  @OneToMany((type) => NetworkLinks, (netwroklinks) => netwroklinks.user, {
-    cascade: true,
-  })
-  networklinks: NetworkLinks[];
 
   @OneToMany((type) => Review, (review) => review.user, { cascade: true })
   review: Review[];
