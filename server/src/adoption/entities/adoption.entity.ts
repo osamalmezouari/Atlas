@@ -1,18 +1,25 @@
 import {
+  BeforeInsert,
   Column,
   Decimal128,
   Entity,
   ManyToMany,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { User } from "../../users/entities/user.entity";
 import { Image } from "./images.entity";
+import { v4 as uuid } from "uuid";
 
 @Entity()
 export class Adoption {
-  @PrimaryGeneratedColumn()
-  id: Number;
+  @BeforeInsert()
+  generateuuid() {
+    this.id = uuid;
+  }
+  @PrimaryGeneratedColumn("uuid")
+  id: String;
   @Column({ type: "datetime", nullable: false })
   posted_date: Date;
   @Column({ type: "boolean", default: false })
@@ -43,6 +50,6 @@ export class Adoption {
   @ManyToOne((type) => User, (user) => user.adoption)
   user: User;
 
-  @ManyToMany((type) => Image, (image) => image.adoption)
+  @OneToMany((type) => Image, (image) => image.adoption, { cascade: true })
   image: Image[];
 }
