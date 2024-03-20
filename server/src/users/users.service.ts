@@ -4,12 +4,14 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { User } from "./entities/user.entity";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
+import { RolesService } from "../roles/roles.service";
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User)
     private readonly usersRepository: Repository<User>,
+    private readonly rolesService: RolesService,
   ) {}
   async findAll(): Promise<User[]> {
     return await this.usersRepository.find({
@@ -42,16 +44,33 @@ export class UsersService {
     return user;
   }
 
-  create(createUserDto: CreateUserDto): Promise<User> {
-    this.usersRepository.create(createUserDto);
-    return this.usersRepository.save(createUserDto);
+  async create(createUserDto: CreateUserDto) {
+    const roleassoc = await this.rolesService.preloadrolebyame(
+      createUserDto.role || "user",
+    );
+    this.usersRepository.create({
+      ...createUserDto,
+      role: roleassoc,
+    });
+    return this.usersRepository.save({
+      ...createUserDto,
+      role: roleassoc,
+    });
   }
 
   async update(id: String, updatedUser: UpdateUserDto) {
-    await this.usersRepository.preload(updatedUser);
-    return this.usersRepository.save({
+    const roleassoc = await this.rolesService.preloadrolebyame(
+      updatedUser.role || "user",
+    );
+    await this.usersRepository.preload({
       id,
       ...updatedUser,
+      role: roleassoc,
+    });
+    return await this.usersRepository.save({
+      id,
+      ...updatedUser,
+      role: roleassoc,
     });
   }
 
