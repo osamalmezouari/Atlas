@@ -16,7 +16,7 @@ import { v4 as uuid } from "uuid";
 export class Adoption {
   @BeforeInsert()
   generateuuid() {
-    this.id = uuid;
+    this.id = uuid();
   }
   @PrimaryGeneratedColumn("uuid")
   id: String;
