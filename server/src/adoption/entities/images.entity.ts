@@ -1,4 +1,5 @@
 import {
+  BeforeInsert,
   Column,
   Entity,
   ManyToOne,
@@ -7,14 +8,18 @@ import {
 } from "typeorm";
 import { User } from "../../users/entities/user.entity";
 import { Adoption } from "./adoption.entity";
-
+import { v4 as uuid } from "uuid";
 @Entity()
 export class Image {
-  @PrimaryGeneratedColumn()
-  id: Number;
+  @BeforeInsert()
+  generateuuid() {
+    this.id = uuid;
+  }
+  @PrimaryGeneratedColumn("uuid")
+  id: String;
   @Column({ nullable: false })
   Cloudurl: String;
 
-  @OneToMany((type) => Adoption, (adoption) => adoption.image)
+  @ManyToOne((type) => Adoption, (adoption) => adoption.image)
   adoption: Adoption;
 }
