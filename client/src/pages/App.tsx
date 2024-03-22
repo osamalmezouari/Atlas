@@ -1,14 +1,18 @@
-import '../styles/App.css'
-// import Register from "./register.tsx";
-// import My_adoptions from "./user/my_adoptions.tsx";
-// import Personal from "./user/personal.tsx";
-import Manage_users from "./admin/manage_users.tsx";
+import './styles/App.css'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Landing from "./pages/landing.tsx";
+
 
 function App() {
-  return (
-    <div>
-      <Manage_users />
-    </div>
+
+  return  (
+    <>
+    <BrowserRouter>
+      <Routes>
+        <Route path={'/'} element={<Landing />} ></Route>
+      </Routes>
+    </BrowserRouter>
+  </>
   )
 }
 
