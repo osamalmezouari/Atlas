@@ -1,8 +1,12 @@
+
 export class CreateUserDto {
-  firstname: String;
-  lastname: String;
-  email: String;
-  password: String;
-  active: Boolean;
-  role: String;
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
+  active: boolean;
+  facebook: string;
+  WhatsApp: string;
+  phone: string;
+  role: string;
 }

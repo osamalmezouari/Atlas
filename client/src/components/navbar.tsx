@@ -1,10 +1,10 @@
-import { FaBars, FaHome } from "react-icons/fa";
+import {FaBars, FaHome, FaUser} from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { BsInfoSquareFill } from "react-icons/bs";
-import { GiSelfLove } from "react-icons/gi";
 import { FaShieldCat } from "react-icons/fa6";
 import { RiMessage3Fill } from "react-icons/ri";
 import { GrShop } from "react-icons/gr";
+import {useNavigate} from "react-router-dom";
 function Navbar() {
   const [NavState,setNavstate] = useState<{
     showNav:string,
@@ -13,6 +13,8 @@ function Navbar() {
     showNav:'pc',
     showNavele :false
   })
+  const navigate = useNavigate()
+
   useEffect(()=>{
     const CheckscreenWidth = () => {
       const innerWidth = window.innerWidth
@@ -44,62 +46,83 @@ function Navbar() {
           className={" nav-pc  flex justify-between bg-white items-center z-[100] px-2 font-custom text-wblue font-black fixed w-full m-auto"}>
           <div className={"navpart-one bg-logo bg-cover w-36 h-24 bg-center col-start-1"}></div>
           <div className={"navpart-two flex gap-5  col-start-2 col-span-4 "}>
-            <p className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"}>Home</p>
-            <p className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"}>About</p>
-            <p className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"}>Adoption</p>
+              <a className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"} onClick={()=>navigate('/Atlas')} >Home</a>
+            <a className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"} href={'#About' }>About</a>
+            <p className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"} onClick={()=>navigate('/Atlas/Adoptions')} >Adoption</p>
             {/*feature <p className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"}>Lost Paws </p>*/}
-            <p className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"}>Contact</p>
+            <a className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"} href={'#Contact' }>Contact</a>
           </div>
-          <div className={"navpart-three col-start-6 flex gap-10 border-l-2 px-4 pl-3 items-center"}>
-            <div className={"text-3xl cursor-pointer"}><GiSelfLove /></div>
-            <div className={"text-3xl cursor-pointer"}><GrShop /></div>
+          <div className={"navpart-three col-start-6 flex gap-6 border-l-2 px-4 pl-3 items-center"}>
+            {/*Feature <div className={"text-3xl cursor-pointer"}><GiSelfLove /></div>*/}
+            <div className={"w-max bg-orange text-white p-3 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"} onClick={() => navigate('/Atlas/PawsCart')}><GrShop/></div>
+            {/*<button*/}
+            {/*  onClick={()=>navigate('/Atlas/login')}*/}
+            {/*  className={"w-24 bg-orange text-white py-2 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"}>Login*/}
+            {/*</button>*/}
             <button
-              className={"w-24 bg-orange text-white py-2 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"}>Login
+                className={"w-max bg-orange text-white p-3 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"}
+                onClick={() => navigate('/Atlas/MyProfile')}><FaUser/>
             </button>
           </div>
           <div
-            className={"navshap-when-nav-hidden w-full left-0 h-16 bg-navshap bg-cover bg-center absolute top-12 -z-10"}></div>
+              className={"navshap-when-nav-hidden w-full left-0 h-16 bg-navshap bg-cover bg-center absolute top-12 -z-10"}></div>
         </nav>
-        : ""}
+          : ""}
       {NavState.showNav === "phone" ?
-        <nav className={"nav-phone "}>
+          <nav className={"nav-phone "}>
           <div
             className={"  flex justify-between bg-white items-center z-[100] px-2 font-custom text-wblue font-black fixed w-full m-auto"}>
             <div className={"navpart-one bg-logo bg-cover w-36 h-24 bg-center col-start-1"}></div>
             <div className={"navpart-three col-start-6 flex gap-2 pl-5 items-center"}>
+              {/*<button*/}
+              {/*    onClick={() => navigate('/Atlas/login')}*/}
+              {/*    className={"w-24 bg-orange text-white py-2 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"}>Login*/}
+              {/*</button>*/}
               <button
-                className={"w-24 bg-orange text-white p-1 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"}>Login
+                  className={"w-max bg-orange text-white p-[5px] rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"}
+                  onClick={() => navigate('/Atlas/MyProfile')}><FaUser/>
               </button>
-              <button className={"text-3xl cursor-pointer"} onClick={()=>{setNavstate(prev => {
-                return {
-                  ...prev,
-                  showNavele: !prev.showNavele
-                };
-              })}}><FaBars /></button>
+              <button className={"text-3xl cursor-pointer"} onClick={() => {
+                setNavstate(prev => {
+                  return {
+                    ...prev,
+                    showNavele: !prev.showNavele
+                  };
+                })
+              }}><FaBars/></button>
             </div>
           </div>
           <div
-            className={"fixed w-full z-[60] top-24 py-2 bg-orange text-white bg-findshap top-[-500px] transition-all duration-700 ease-in-out"}
-            style={NavState.showNavele ? { top: "90px" } : {}}>
+              className={"fixed w-full z-[60] top-24 py-2 bg-orange text-white bg-findshap top-[-500px] transition-all duration-700 ease-in-out"}
+              style={NavState.showNavele ? { top: "90px" } : {}}>
+            <a
+              className={"  p-2 font-custom font-bold text cursor-pointer transition-all duration-500 flex gap-6 hover:pl-7 hover:bg-dbleu rounded mx-2"}
+            href={'#Home'}
+            >
+
+              <FaHome className={"text-xl "} />Home</a>
+            <a
+              className={"p-2 font-custom font-bold text cursor-pointer transition-all duration-500 flex gap-6 hover:pl-7 hover:bg-dbleu rounded mx-2"}
+              href={'#About'}
+            >
+              <BsInfoSquareFill />About</a>
             <p
-              className={"  p-2 font-custom font-bold text cursor-pointer transition-all duration-500 flex gap-6 hover:pl-7 hover:bg-dbleu rounded mx-2"}>
-              <FaHome className={"text-xl "} />Home</p>
-            <p
-              className={"p-2 font-custom font-bold text cursor-pointer transition-all duration-500 flex gap-6 hover:pl-7 hover:bg-dbleu rounded mx-2"}>
-              <BsInfoSquareFill />About</p>
-            <p
-              className={"p-2 font-custom font-bold text cursor-pointer transition-all duration-500 flex gap-6 hover:pl-7 hover:bg-dbleu rounded mx-2"}>
+              className={"p-2 font-custom font-bold text cursor-pointer transition-all duration-500 flex gap-6 hover:pl-7 hover:bg-dbleu rounded mx-2"}
+
+            >
               <FaShieldCat /> Adoption</p>
-            <p
-              className={"p-2 font-custom font-bold text cursor-pointer transition-all duration-500 flex gap-6 hover:pl-7 hover:bg-dbleu rounded mx-2"}>
-              <RiMessage3Fill /> Contact</p>
+            <a
+              className={"p-2 font-custom font-bold text cursor-pointer transition-all duration-500 flex gap-6 hover:pl-7 hover:bg-dbleu rounded mx-2"}
+              href={'#Contact'}
+            >
+              <RiMessage3Fill /> Contact</a>
             <p
               className={"p-2 font-custom font-bold text cursor-pointer transition-all duration-500 flex gap-6 hover:pl-7 hover:bg-dbleu rounded mx-2"}>
               <GrShop /> Paws Cart</p>
-            <p
-              className={"p-2 font-custom font-bold text  cursor-pointer transition-all duration-500 flex gap-6 hover:pl-7 hover:bg-dbleu rounded mx-2"}>
-              <GiSelfLove />Dream Pets
-            </p>
+            {/*<p*/}
+            {/*  className={"p-2 font-custom font-bold text  cursor-pointer transition-all duration-500 flex gap-6 hover:pl-7 hover:bg-dbleu rounded mx-2"}>*/}
+            {/*  <GiSelfLove />Dream Pets*/}
+            {/*</p>*/}
             <div className={"navshap w-full h-8 bg-navshap bg-cover bg-center relative top-10 -z-10 "}></div>
           </div>
           <div

@@ -10,7 +10,7 @@ function Landing() {
   return (
     <div>
       <Navbar />
-      <section className={'sec-1 home relative z-70'} style={{ height: "calc(100vh)" }}>
+      <section className={'sec-1 home relative z-70'} style={{ height: "calc(100vh)" }} id={"Home"}>
         <div className={'home-image bg-home bg-center bg-cover absolute -z-20 w-full h-screen transform'}></div>
         <div
           className={'home-text-box w-11/12 relative top-56 text-[6vh] font-bold font-custom grid grid-cols-[1fr,800px] grid-rows-[1fr,auto,40px] px-2 text-mywhite pl-5 '}>
@@ -27,14 +27,14 @@ function Landing() {
           </button>
         </div>
       </section>
-      <section className={'sec-2 relative about mx-auto w-full bg-about pb-20 bg-cover bg-center'}>
+      <section className={'sec-2 relative about mx-auto w-full bg-about pb-20 bg-cover bg-center'} id={'About'}>
         <div className={"searchbar relative  w-9/12  -top-16 z-50 pb-5 p-2 grid grid-rows-[auto,1fr] mx-auto text-white rounded-2xl mr-auto max-md:m-0 max-md:w-full"}>
           <Searchbar />
         </div>
 
         {/*<div className={'bg-about h-full w-full bg-cover bg-center absolute -z-40 max-sm:h-[1250px] max-md:h-[1100px] md:h-[1000px] lg:max-h-[1000px]'}></div>*/}
         <div
-          className={'about-box rounded-xl bg-mywhite mt-12  m-auto bg-Aboutparent bg-center bg-contain w-9/12 p-12 h-max  grid grid-cols-[1.4fr,2fr] gap-[20px] max-md:grid-rows-[300px] max-md:grid-cols-1 max-md:p-2 max-md:w-[96%] ,max-w-7xl '}>
+          className={'about-box rounded-xl  m-auto bg-Aboutparent bg-center bg-contain w-9/12 p-12 h-max  grid grid-cols-[1.4fr,2fr] gap-[20px] max-md:grid-rows-[300px] max-md:grid-cols-1 max-md:p-2 max-md:w-[96%] ,max-w-7xl '}>
           <div
             className={'box-image scale-x-1 rounded bg-Aboutchild relative bg-center bg-cover w-full h-11/12 grid-cols-1 bg-orange max-md:bg-Aboutchildmd  '}>
             <div

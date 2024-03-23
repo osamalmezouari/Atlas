@@ -15,11 +15,11 @@ export class Review {
     this.id = uuid();
   }
   @PrimaryGeneratedColumn("uuid")
-  id: String;
+  id: string;
   @Column({ nullable: false })
-  comment: String;
+  comment: string;
   @Column({ nullable: false })
-  rating: Number;
+  rating: number;
   @ManyToOne((type) => User, (user) => user.review)
   user: User;
 }

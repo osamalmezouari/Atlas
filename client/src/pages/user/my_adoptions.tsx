@@ -5,7 +5,6 @@ import { FaBars,  } from "react-icons/fa";
 // import { AiFillDelete} from "react-icons/ai";
 
 function My_adoptions() {
-  // @ts-ignore
   return (
     <div className={'bg-about h-full'}>
       <Navbar /> {/*remove the login button and add the sign the profile button*/}
@@ -103,9 +102,9 @@ function My_adoptions() {
             <input
               className={"pl-2  outline-none h-12 border-2  hover:border-dbleu duration-500 transition-all rounded"}
               type={"number"} name={"Weight"} placeholder={"Weight"}></input>
-            <textarea
+            <input
               className={"col-span-3 min-h-[120px] max-h-[120px] p-2  outline-none border-2  hover:border-dbleu duration-500 transition-all rounded"}
-              placeholder={"Description"} name={"Description"} aria-valuemax={"350"}></textarea>
+              placeholder={"Description"} name={"Description"} ></input>
             <div
               className={"localisation bg-map bg-cover col-span-3 pl-2  outline-none h-[120px] border-2  hover:border-dbleu duration-500 transition-all rounded"}
             >

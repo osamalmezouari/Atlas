@@ -1,8 +1,8 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
-const Footer = ()=>{
+const Footer = () =>{
   return <>
-    <section className={"sec-footer bg-footer bg-cover bg-center bg-no-repeat h-full "}>
+    <section className={"sec-footer bg-footer bg-cover bg-center bg-no-repeat h-full "} id={'Contact'}>
       <div className={"dogright"}></div>
       <div
         className={"grid grid-cols-[200px,150px,150px] h-full max-w-[1000px] m-auto py-20 items-center justify-around max-md:grid-cols-1 max-md:gap-y-7 max-md:p-7"}>

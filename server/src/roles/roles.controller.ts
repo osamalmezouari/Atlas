@@ -20,7 +20,7 @@ export class RolesController {
   }
 
   @Get(":id")
-  async findOne(@Param("id") id: String) {
+  async findOne(@Param("id") id: string) {
     console.log(id);
     return await this.rolesService.findOne(id);
   }
@@ -30,12 +30,12 @@ export class RolesController {
   }
 
   @Put(":id")
-  async update(@Param("id") id: String, @Body() updateroledto: UpdateRoleDto) {
+  async update(@Param("id") id: string, @Body() updateroledto: UpdateRoleDto) {
     console.log(id);
     return this.rolesService.update(id, updateroledto);
   }
   @Delete(":id")
-  delete(@Param("id") id: String) {
+  delete(@Param("id") id: string) {
     return this.rolesService.delete(id);
   }
 }

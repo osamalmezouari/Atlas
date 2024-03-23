@@ -1,9 +1,7 @@
 import {
   BeforeInsert,
   Column,
-  Decimal128,
   Entity,
-  ManyToMany,
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
@@ -19,37 +17,38 @@ export class Adoption {
     this.id = uuid();
   }
   @PrimaryGeneratedColumn("uuid")
-  id: String;
+  id: string;
   @Column({ type: "datetime", nullable: false })
   posted_date: Date;
   @Column({ type: "boolean", default: false })
-  adopted: Boolean;
+  adopted: boolean;
   @Column({ nullable: false })
-  animal_name: String;
+  animal_name: string;
   @Column({ nullable: false })
-  animal_race: String;
+  animal_race: string;
   @Column({ nullable: false })
-  animal_age: Number;
+  animal_age: number;
   @Column({ nullable: false })
-  animal_gender: String;
+  animal_gender: string;
   @Column({ nullable: false })
-  animal_class: String;
+  animal_class: string;
   @Column({ type: "text", nullable: false })
-  description: String;
+  description: string;
   @Column({ type: "float", nullable: true })
-  weight: Number;
+  weight: number;
   @Column({ nullable: false })
-  health: String;
+  health: string;
   @Column({ type: "float", nullable: false })
-  longitude: Number;
+  longitude: number;
   @Column({ type: "float", nullable: false })
-  latitude: Number;
+  latitude: number;
   @Column({ type: "boolean", nullable: false })
-  castrate: Boolean;
+  castrate: boolean;
+  @Column()
+  Vaccinated: boolean;
 
-  @ManyToOne((type) => User, (user) => user.adoption)
+  @ManyToOne(() => User, (user) => user.adoption)
   user: User;
-
-  @OneToMany((type) => Image, (image) => image.adoption, { cascade: true })
+  @OneToMany(() => Image, (image) => image.adoption, { cascade: true })
   image: Image[];
 }

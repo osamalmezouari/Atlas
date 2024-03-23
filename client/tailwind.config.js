@@ -54,7 +54,8 @@ module.exports = {
         "adoptionlist" :"url(https://images.pexels.com/photos/1741205/pexels-photo-1741205.jpeg?auto=compress&cs=tinysrgb&w=600)",
         "path":"url(https://themebeyond.com/beyond/billu/wp-content/uploads/2023/03/H2B.jpg)",
         "map":"url(D:\\Oussama\\PROJECTS\\Atlas\\client\\public\\assets\\images\\map.png)",
-        "subscribeimg" :"url('https://themebeyond.com/beyond/billu/wp-content/themes/billu/assets/img/icon/sn_icon.png')"
+        "subscribeimg" :"url('https://themebeyond.com/beyond/billu/wp-content/themes/billu/assets/img/icon/sn_icon.png')",
+        "loading":"url('https://themebeyond.com/beyond/billu/wp-content/themes/billu/assets/img/preloader.gif')"
       }
     },
   },

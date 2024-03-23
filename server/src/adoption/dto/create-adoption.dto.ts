@@ -1,15 +1,17 @@
 export class CreateAdoptionDto {
   posted_date: Date;
-  adopted: Boolean;
-  animal_name: String;
-  animal_race: String;
-  animal_age: Number;
-  animal_gender: String;
-  animal_class: String;
-  description: String;
-  weight: Number;
-  health: String;
-  castrate: Boolean;
-  user: String;
-  image: String[];
+  adopted: boolean;
+  animal_name: string;
+  animal_race: string;
+  animal_age: number;
+  animal_gender: string;
+  animal_class: string;
+  description: string;
+  weight: number;
+  health: string;
+  castrate: boolean;
+  user: string;
+  Vaccinated: boolean;
+
+  image: string[];
 }

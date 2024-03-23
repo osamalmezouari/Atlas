@@ -26,8 +26,14 @@ export class AdoptionService {
     });
   }
 
-  async findOne(id: String): Promise<Adoption> {
-    const Adoption = await this.adoptionRepository.findOne({ where: { id } });
+  async findOne(id: string): Promise<Adoption> {
+    const Adoption = await this.adoptionRepository.findOne({
+      where: { id },
+      relations: {
+        user: true,
+        image: true,
+      },
+    });
     if (!Adoption) {
       throw new NotFoundException(
         ` Adoption with id = ${id} ${HttpStatus.NOT_FOUND} `,
@@ -44,8 +50,8 @@ export class AdoptionService {
     );
     this.adoptionRepository.create({
       ...createAdoptionDto,
-      image,
       user: assocuser,
+      image,
     });
     return this.adoptionRepository.save({
       ...createAdoptionDto,
@@ -54,7 +60,7 @@ export class AdoptionService {
     });
   }
 
-  async update(id: String, updatedAdoption: UpdateAdoptionDto) {
+  async update(id: string, updatedAdoption: UpdateAdoptionDto) {
     const { user } = updatedAdoption;
     const assocuser = await this.usersService.findOne(user);
     const image =
@@ -81,7 +87,7 @@ export class AdoptionService {
     });
   }
 
-  async delete(id: String) {
+  async delete(id: string) {
     const adoption = await this.findOne(id);
     if (!adoption) {
       throw new Error("Adoption not found");

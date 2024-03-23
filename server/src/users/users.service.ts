@@ -24,7 +24,7 @@ export class UsersService {
       },
     });
   }
-  async findOne(id: String) {
+  async findOne(id: string) {
     const user = await this.usersRepository.findOne({
       where: { id },
       relations: {
@@ -58,7 +58,7 @@ export class UsersService {
     });
   }
 
-  async update(id: String, updatedUser: UpdateUserDto) {
+  async update(id: string, updatedUser: UpdateUserDto) {
     const roleassoc = await this.rolesService.preloadrolebyame(
       updatedUser.role || "user",
     );
@@ -74,7 +74,7 @@ export class UsersService {
     });
   }
 
-  async delete(id: String) {
+  async delete(id: string) {
     const user = await this.findOne(id);
     return await this.usersRepository.remove(user);
   }

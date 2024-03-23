@@ -16,10 +16,10 @@ export class Image {
     this.id = uuid();
   }
   @PrimaryGeneratedColumn("uuid")
-  id: String;
+  id: string;
   @Column({ nullable: false })
-  Cloudurl: String;
+  Cloudurl: string;
 
-  @ManyToOne((type) => Adoption, (adoption) => adoption.image)
+  @ManyToOne(() => Adoption, (adoption) => adoption.image)
   adoption: Adoption;
 }

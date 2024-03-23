@@ -15,7 +15,7 @@ export class RolesService {
   findAll(): Promise<Role[]> {
     return this.rolesrepository.find();
   }
-  async findOne(id: String): Promise<Role> {
+  async findOne(id: string): Promise<Role> {
     return await this.rolesrepository.findOne({ where: { id } });
   }
 
@@ -28,7 +28,7 @@ export class RolesService {
       ...createroledto,
     });
   }
-  async update(id: String, updateroledto: UpdateRoleDto) {
+  async update(id: string, updateroledto: UpdateRoleDto) {
     console.log(id);
     const exsitingRole = await this.rolesrepository.preload({
       id,
@@ -45,12 +45,12 @@ export class RolesService {
     });
   }
 
-  async delete(id: String) {
+  async delete(id: string) {
     const role = await this.rolesrepository.findOne({ where: { id } });
     return this.rolesrepository.remove(role);
   }
 
-  preloadrolebyame(name: String) {
+  preloadrolebyame(name: string) {
     return this.rolesrepository.findOne({ where: { Role: name } });
   }
 }

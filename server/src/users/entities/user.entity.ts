@@ -19,23 +19,23 @@ export class User {
     this.id = uuid();
   }
   @PrimaryGeneratedColumn("uuid")
-  id: String;
+  id: string;
   @Column({ nullable: false, unique: true })
-  firstname: String;
+  firstname: string;
   @Column({ nullable: false, unique: true })
-  lastname: String;
+  lastname: string;
   @Column({ nullable: false, unique: true })
-  email: String;
+  email: string;
   @Column({ nullable: false })
-  password: String;
+  password: string;
   @Column({ nullable: true, unique: true })
-  facebook: String;
+  facebook: string;
   @Column({ nullable: true, unique: true })
-  WhatsApp: String;
+  WhatsApp: string;
   @Column({ nullable: true, unique: true })
-  phone: String;
+  phone: string;
   @Column({ default: true })
-  active: Boolean;
+  active: boolean;
 
   @OneToMany((type) => Adoption, (Adoption) => Adoption.user, { cascade: true })
   adoption: Adoption[];

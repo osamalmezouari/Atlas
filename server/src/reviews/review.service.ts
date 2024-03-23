@@ -32,7 +32,7 @@ export class ReviewService {
     return this.ReviewsRepository.save(newReview);
   }
 
-  async delete(id: String) {
+  async delete(id: string) {
     const review = await this.ReviewsRepository.findOne({ where: { id } });
     if (!review) {
       throw new Error(`review with the id = ${id} ${HttpStatus.NOT_FOUND}`);

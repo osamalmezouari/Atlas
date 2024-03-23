@@ -14,10 +14,10 @@ export class Role {
     this.id = uuid();
   }
   @PrimaryGeneratedColumn("uuid")
-  id: String;
+  id: string;
 
   @Column({ nullable: false })
-  Role: String;
+  Role: string;
 
   @OneToMany((type) => User, (user) => user.role)
   user: User[];

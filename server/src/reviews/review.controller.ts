@@ -25,7 +25,7 @@ export class ReviewController {
   }
 
   @Delete(":id")
-  delete(@Param("id") id: String) {
+  delete(@Param("id") id: string) {
     return this.reviewService.delete(id);
   }
 }

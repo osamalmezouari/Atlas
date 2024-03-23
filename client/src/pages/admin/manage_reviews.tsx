@@ -16,20 +16,6 @@ function  Manage_Reviews() {
             </div>
           </div>
           <div className={"w-full mt-2 mb-6 h-[3px] bg-orange block rounded"}></div>
-          <div className={"sidenav bg-white p-4 rounded max-w-[800px] m-auto h-max mb-5 overflow-clip"}>
-            <div
-              className={"bg-dbleu cursor-pointer hover:bg-orange transition-all duration-500 p-3 rounded mb-3 text-white font-custom font-bold"}>Manage
-              adoptions
-            </div>
-            <div
-              className={"bg-dbleu cursor-pointer hover:bg-orange transition-all duration-500 p-3 rounded mb-3 text-white font-custom font-bold"}>
-              Manage users
-            </div>
-            <div
-              className={"bg-dbleu cursor-pointer hover:bg-orange transition-all duration-500 p-3 rounded text-white font-custom font-bold"}>
-              Manage Reviews
-            </div>
-          </div>
           <table className={"table-of-adoptions  max-h-[200px] overflow-y-scroll border-b-2 border-white w-full "}>
             <tr
               className={"text-center bg-white h-10 p-4 rounded-tl rounded-tr font-bold font-custom capitalize text-dbleu"}>

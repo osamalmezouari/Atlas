@@ -29,11 +29,11 @@ export class UsersController {
     return this.usersService.create(createUserDto);
   }
   @Put(":id")
-  async update(@Param("id") id: String, @Body() updatedUser: UpdateUserDto) {
+  async update(@Param("id") id: string, @Body() updatedUser: UpdateUserDto) {
     return await this.usersService.update(id, updatedUser);
   }
   @Delete(":id")
-  async delete(@Param("id") id: String) {
+  async delete(@Param("id") id: string) {
     return await this.usersService.delete(id);
   }
 }
