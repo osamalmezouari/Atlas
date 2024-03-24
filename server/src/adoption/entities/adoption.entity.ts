@@ -42,6 +42,8 @@ export class Adoption {
   longitude: number;
   @Column({ type: "float", nullable: false })
   latitude: number;
+  @Column({ nullable: false })
+  location: string;
   @Column({ type: "boolean", nullable: false })
   castrate: boolean;
   @Column()

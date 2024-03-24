@@ -6,24 +6,35 @@ import {
   Delete,
   Param,
   Body,
+  Query,
 } from "@nestjs/common";
 import { AdoptionService } from "./adoption.service";
 import { Adoption } from "./entities/adoption.entity";
 import { CreateAdoptionDto } from "./dto/create-adoption.dto";
 import { UpdateAdoptionDto } from "./dto/update-adoption.dto";
+import { PaginationDto } from "../common/pagination.dto";
 
-@Controller("Adoptions")
+@Controller("adoptions")
 export class AdoptionController {
   constructor(private readonly adoptionService: AdoptionService) {}
 
+  @Get("locations")
+  async findAllLocations (): Promise<string[]>{
+    return await this.adoptionService.findAllLocations()
+  }
   @Get()
-  findAll(): Promise<Adoption[]> {
+  findAll(@Query() PaginationQuery: PaginationDto): Promise<Adoption[]> {
+    //const { limit, offset } = PaginationQuery;
     return this.adoptionService.findAll();
   }
-
   @Get(":id")
   findById(@Param("id") id: string) {
     return this.adoptionService.findOne(id);
+  }
+
+  @Get(":class/:location")
+  async findWithClassAndLocation(@Param('class') classParam: string, @Param('location') locationParam: string) {
+    return await this.adoptionService.FindWithClassAndLocation(classParam,locationParam)
   }
 
   @Post()
@@ -43,4 +54,5 @@ export class AdoptionController {
   delete(@Param("id") id: string) {
     return this.adoptionService.delete(id);
   }
+
 }

@@ -12,6 +12,6 @@ export class CreateAdoptionDto {
   castrate: boolean;
   user: string;
   Vaccinated: boolean;
-
+  location: string;
   image: string[];
 }

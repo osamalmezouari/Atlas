@@ -7,6 +7,7 @@ import { Image } from "./entities/images.entity";
 import { UpdateAdoptionDto } from "./dto/update-adoption.dto";
 import * as http from "http";
 import { UsersService } from "../users/users.service";
+import {skip, take} from "rxjs";
 
 @Injectable()
 export class AdoptionService {
@@ -18,12 +19,28 @@ export class AdoptionService {
     private readonly usersService: UsersService,
   ) {}
 
-  findAll(): Promise<Adoption[]> {
+  async findAll(): Promise<Adoption[]> {
     return this.adoptionRepository.find({
       relations: {
         image: true,
-      },
+      }
     });
+  }
+  async FindWithClassAndLocation(classParam: string,locationParam : string) : Promise<Adoption[]>{
+    console.log(classParam,locationParam)
+    const result =  await this.adoptionRepository.find({where : {animal_class:classParam , location : locationParam},relations : {
+      image : true
+      }})
+    console.log(classParam,locationParam,result)
+    return result
+  }
+
+  async findAllLocations(): Promise<string[]> {
+    const adoptions = await this.adoptionRepository.find({
+      select: ["location"]
+    });
+    const locations = await Promise.all( adoptions.map(adoption => adoption.location))
+    return  locations
   }
 
   async findOne(id: string): Promise<Adoption> {
@@ -103,4 +120,6 @@ export class AdoptionService {
     }
     return this.imageRepository.create({ Cloudurl });
   }
+
+
 }
