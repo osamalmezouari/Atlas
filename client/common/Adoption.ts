@@ -16,6 +16,7 @@ export interface Adoption extends User{
     latitude: number;
     castrate: boolean;
     Vaccinated : boolean
+    location: string;
     user: User
     image: [{
         id:string
