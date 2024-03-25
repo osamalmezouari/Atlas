@@ -1,5 +1,5 @@
 export class CreateAdoptionDto {
-  posted_date: Date;
+  posted_date: number;
   adopted: boolean;
   animal_name: string;
   animal_race: string;
