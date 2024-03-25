@@ -19,6 +19,10 @@ export class ReviewController {
   findAll(): Promise<Review[]> {
     return this.reviewService.findAll();
   }
+  @Get("ReviewsStatistics")
+  async ReviewsStatistics() {
+    return await this.reviewService.ReviewsStatistics();
+  }
   @Post()
   create(@Body() createReviewDto: CreateReviewDto): Promise<Review> {
     return this.reviewService.create(createReviewDto);
