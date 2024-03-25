@@ -2,12 +2,10 @@ import {
   BeforeInsert,
   Column,
   Entity,
-  ManyToMany,
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { JoinTable } from "typeorm/browser";
 import { Adoption } from "../../adoption/entities/adoption.entity";
 import { Role } from "../../roles/entities/roles.entity";
 import { Review } from "../../reviews/entities/review.entity";
@@ -36,13 +34,12 @@ export class User {
   phone: string;
   @Column({ default: true })
   active: boolean;
-
-  @OneToMany((type) => Adoption, (Adoption) => Adoption.user, { cascade: true })
+  @Column({ type: "bigint", nullable: true })
+  CreatedDate: number;
+  @OneToMany(() => Adoption, (Adoption) => Adoption.user, { cascade: true })
   adoption: Adoption[];
-
-  @ManyToOne((type) => Role, (role) => role.user, { cascade: true })
+  @ManyToOne(() => Role, (role) => role.user, { cascade: true })
   role: Role;
-
-  @OneToMany((type) => Review, (review) => review.user, { cascade: true })
+  @OneToMany(() => Review, (review) => review.user, { cascade: true })
   review: Review[];
 }
