@@ -18,8 +18,10 @@ export class Review {
   id: string;
   @Column({ nullable: false })
   comment: string;
+  @Column({ type: "bigint", nullable: false })
+  CreatedDate: number;
   @Column({ nullable: false })
   rating: number;
-  @ManyToOne((type) => User, (user) => user.review)
+  @ManyToOne(() => User, (user) => user.review)
   user: User;
 }
