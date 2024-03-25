@@ -3,15 +3,22 @@ import { MdOutlinePets } from "react-icons/md";
 import { IoSearch } from "react-icons/io5";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {StoreState} from "../../common/StoreState.ts";
-import {useEffect, useState} from "react";
+import {StoreState} from "../../Types/StoreState.ts";
+import {ChangeEvent, useEffect, useState} from "react";
 import {findAllAdoptions, findAllLocations, findFilteredAdoptions} from "../features/adoption/adoptionSlice.ts";
 import {AppDispatch} from "../app/store.ts";
 
 function Searchbar() {
    const navigate =  useNavigate()
     const dispatch: AppDispatch = useDispatch()
-    const locations : string [] = useSelector((state : StoreState)=> state.Adoptions.AllLocations)
+    const locationsNotFiltered : string [] = useSelector((state : StoreState)=> state.Adoptions.AllLocations)
+    const locations : string [] = []
+    locationsNotFiltered.map((location)=>{
+        if (locations.includes(location)) {
+            return location;
+        }
+        return locations.push(location)
+    })
     const [formData,setFormData] = useState<{
         Class:string,
         location:string
@@ -19,7 +26,7 @@ function Searchbar() {
         Class:"",
         location:""
     })
-    const HandlerChange = (e)=>{
+    const HandlerChange = (e:ChangeEvent<HTMLSelectElement>)=>{
        const target = e.target
         setFormData({
            ...formData,
@@ -42,7 +49,7 @@ function Searchbar() {
   return (
     <form onSubmit={(event)=>handleSubmit(event)}>
       <div
-        className={'bg-orange col-span-2 rounded-tl-xl rounded-tr-xl text-center font-custom p-1 text-xl capitalize font-bold flex items-center justify-center tracking-wide  bg-findshap bg-contain w-full bg-center h-16 max-md:h-full max-md:py-2 '}> Discover
+        className={'bg-orange col-span-2 rounded-tl-xl rounded-tr-xl text-center font-custom p-1 text-xl capitalize font-bold flex items-center justify-center tracking-wide  bg-findshap bg-contain w-full max-md:h-24 bg-center h-12 max-md:py-2 '}> Discover
         your forever companion with just a click !
       </div>
       <div
