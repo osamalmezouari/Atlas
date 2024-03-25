@@ -1,5 +1,4 @@
 import { HttpStatus, Injectable } from "@nestjs/common";
-import * as mysql from "mysql";
 import { Review } from "./entities/review.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
@@ -28,6 +27,7 @@ export class ReviewService {
     const newReview = this.ReviewsRepository.create({
       ...reviewData,
       user: user,
+      CreatedDate: new Date().getTime(),
     });
     return this.ReviewsRepository.save(newReview);
   }
@@ -38,5 +38,18 @@ export class ReviewService {
       throw new Error(`review with the id = ${id} ${HttpStatus.NOT_FOUND}`);
     }
     return this.ReviewsRepository.remove(review);
+  }
+
+  async ReviewsStatistics() {
+    const query = `
+    SELECT CreatedDate
+    FROM review
+    WHERE CreatedDate BETWEEN UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 7 DAY)) * 1000 
+    AND UNIX_TIMESTAMP(NOW()) * 1000;
+  `;
+
+    const rows = await this.ReviewsRepository.query(query);
+    const createdDates = rows.map((row) => row.CreatedDate);
+    return createdDates;
   }
 }
