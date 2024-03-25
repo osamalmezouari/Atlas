@@ -6,7 +6,7 @@ import {useEffect} from "react";
 import {findOneAdoption} from "../features/adoption/adoptionSlice.ts";
 import {AppDispatch} from "../app/store.ts";
 import {useDispatch, useSelector} from "react-redux";
-import {StoreState} from "../../common/StoreState.ts";
+import {StoreState} from "../../Types/StoreState.ts";
 
 function Adoptiondetails() {
   const dispatch : AppDispatch = useDispatch()
@@ -49,7 +49,7 @@ function Adoptiondetails() {
               </div>
               :
               <div
-                  className={'Content max-w-[1400px] py-6 grid   gap-x-10 m-auto mt-[70px] font-custom tracking-wide gap-y-4 p-4'}>
+                  className={'Content w-full py-6 grid   gap-x-10 m-auto mt-[70px] font-custom tracking-wide gap-y-4 p-4'}>
 
                 <div className={"w-full h-max user-details bg-about pt-10 p-10 rounded-xl gap-y-6 relative "}>
                   {/*<p className={'text-dbleu font-extrabold capitalize text-xl '}>Owner information</p>*/}
