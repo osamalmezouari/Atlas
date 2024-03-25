@@ -5,9 +5,7 @@ import { Repository } from "typeorm";
 import { CreateAdoptionDto } from "./dto/create-adoption.dto";
 import { Image } from "./entities/images.entity";
 import { UpdateAdoptionDto } from "./dto/update-adoption.dto";
-import * as http from "http";
 import { UsersService } from "../users/users.service";
-import {skip, take} from "rxjs";
 
 @Injectable()
 export class AdoptionService {
@@ -23,24 +21,31 @@ export class AdoptionService {
     return this.adoptionRepository.find({
       relations: {
         image: true,
-      }
+      },
     });
   }
-  async FindWithClassAndLocation(classParam: string,locationParam : string) : Promise<Adoption[]>{
-    console.log(classParam,locationParam)
-    const result =  await this.adoptionRepository.find({where : {animal_class:classParam , location : locationParam},relations : {
-      image : true
-      }})
-    console.log(classParam,locationParam,result)
-    return result
+  async FindWithClassAndLocation(
+    classParam: string,
+    locationParam: string,
+  ): Promise<Adoption[]> {
+    console.log(classParam, locationParam);
+    const result = await this.adoptionRepository.find({
+      where: { animal_class: classParam, location: locationParam },
+      relations: {
+        image: true,
+      },
+    });
+    return result;
   }
 
   async findAllLocations(): Promise<string[]> {
     const adoptions = await this.adoptionRepository.find({
-      select: ["location"]
+      select: ["location"],
     });
-    const locations = await Promise.all( adoptions.map(adoption => adoption.location))
-    return  locations
+    const locations = await Promise.all(
+      adoptions.map((adoption) => adoption.location),
+    );
+    return locations;
   }
 
   async findOne(id: string): Promise<Adoption> {
@@ -68,12 +73,14 @@ export class AdoptionService {
     this.adoptionRepository.create({
       ...createAdoptionDto,
       user: assocuser,
+      posted_date: new Date().getTime(),
       image,
     });
     return this.adoptionRepository.save({
       ...createAdoptionDto,
       image,
       user: assocuser,
+      posted_date: new Date().getTime(),
     });
   }
 
@@ -121,5 +128,28 @@ export class AdoptionService {
     return this.imageRepository.create({ Cloudurl });
   }
 
+  async AdoptionNewStatistics() {
+    const query = `
+    SELECT posted_date , adopted
+    FROM adoption
+    WHERE posted_date BETWEEN UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 7 DAY)) * 1000 
+    AND UNIX_TIMESTAMP(NOW()) * 1000
+    AND adopted = 0`;
 
+    const rows = await this.adoptionRepository.query(query);
+    const createdDates = rows.map((row) => row.posted_date);
+    return createdDates;
+  }
+  async AdoptionAdoptedStatistics() {
+    const query = `
+    SELECT posted_date , adopted
+    FROM adoption
+    WHERE posted_date BETWEEN UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 7 DAY)) * 1000 
+    AND UNIX_TIMESTAMP(NOW()) * 1000
+    AND adopted = 1`;
+
+    const rows = await this.adoptionRepository.query(query);
+    const createdDates = rows.map((row) => row.posted_date);
+    return createdDates;
+  }
 }
