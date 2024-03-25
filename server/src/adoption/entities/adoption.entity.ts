@@ -18,8 +18,8 @@ export class Adoption {
   }
   @PrimaryGeneratedColumn("uuid")
   id: string;
-  @Column({ type: "datetime", nullable: false })
-  posted_date: Date;
+  @Column({ type: "bigint", nullable: true })
+  posted_date: number;
   @Column({ type: "boolean", default: false })
   adopted: boolean;
   @Column({ nullable: false })
@@ -38,10 +38,10 @@ export class Adoption {
   weight: number;
   @Column({ nullable: false })
   health: string;
-  @Column({ type: "float", nullable: false })
-  longitude: number;
-  @Column({ type: "float", nullable: false })
-  latitude: number;
+  // @Column({ type: "float", nullable: false })
+  // longitude: number;
+  // @Column({ type: "float", nullable: false })
+  // latitude: number;
   @Column({ nullable: false })
   location: string;
   @Column({ type: "boolean", nullable: false })
