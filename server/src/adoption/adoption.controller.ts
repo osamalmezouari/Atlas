@@ -18,10 +18,21 @@ import { PaginationDto } from "../common/pagination.dto";
 export class AdoptionController {
   constructor(private readonly adoptionService: AdoptionService) {}
 
-  @Get("locations")
-  async findAllLocations (): Promise<string[]>{
-    return await this.adoptionService.findAllLocations()
+  @Get("AdoptionNewStatistics")
+  async AdoptionStatistics() {
+    const adoptions = await this.adoptionService.AdoptionNewStatistics();
+    return adoptions;
   }
+  @Get("AdoptionAdoptedStatistics")
+  async AdoptionAdoptedStatistics() {
+    const adoptions = await this.adoptionService.AdoptionAdoptedStatistics();
+    return adoptions;
+  }
+  @Get("locations")
+  async findAllLocations(): Promise<string[]> {
+    return await this.adoptionService.findAllLocations();
+  }
+
   @Get()
   findAll(@Query() PaginationQuery: PaginationDto): Promise<Adoption[]> {
     //const { limit, offset } = PaginationQuery;
@@ -33,8 +44,14 @@ export class AdoptionController {
   }
 
   @Get(":class/:location")
-  async findWithClassAndLocation(@Param('class') classParam: string, @Param('location') locationParam: string) {
-    return await this.adoptionService.FindWithClassAndLocation(classParam,locationParam)
+  async findWithClassAndLocation(
+    @Param("class") classParam: string,
+    @Param("location") locationParam: string,
+  ) {
+    return await this.adoptionService.FindWithClassAndLocation(
+      classParam,
+      locationParam,
+    );
   }
 
   @Post()
@@ -54,5 +71,4 @@ export class AdoptionController {
   delete(@Param("id") id: string) {
     return this.adoptionService.delete(id);
   }
-
 }
