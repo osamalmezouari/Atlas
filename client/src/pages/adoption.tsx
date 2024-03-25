@@ -4,12 +4,12 @@ import Footer from '../components/footer.tsx';
 import Subscribe from '../components/subscribe.tsx';
 import {useState} from 'react';
 import {useSelector} from 'react-redux';
-import {StoreState} from '../../common/StoreState.ts';
+import {StoreState} from '../../Types/StoreState.ts';
 import {TbWorld} from 'react-icons/tb';
 import {IoCalendarOutline} from 'react-icons/io5';
 import {CiSettings} from 'react-icons/ci';
 import {useNavigate} from 'react-router-dom';
-import {Adoption} from '../../common/Adoption.ts';
+import {Adoption} from '../../Types/Adoption.ts';
 import {FaArrowAltCircleRight} from 'react-icons/fa';
 
 
@@ -17,7 +17,7 @@ export default function Adoption() {
     const navigate = useNavigate();
     const AdoptionsState = useSelector((state: StoreState) => state.Adoptions);
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 2;
+    const itemsPerPage = 9;
 
 
     const totalAdoptions = AdoptionsState.FilteredAdoptions?.data?.length;
@@ -62,7 +62,7 @@ export default function Adoption() {
                     <p className={'capitalize w-full text-orange font-extrabold font-custom text-xl '}> Meet the
                         animals </p>
                     <div>
-                        <p className={'capitalize w-full text-4xl font-extrabold text-dbleu font-custom'}>Puppies
+                        <p className={'capitalize w-full text-4xl font-extrabold text-dbleu font-custom'}>Paws
                             Waiting for Adoption</p>
                         <p className={'capitalize  px-2 w-6/12 mx-auto pt-4  font-extrabold  tracking-wide text-white font-custom max-md:w-full'}>
                             The best overall dog DNA test is Embark Breed & Health Kit (view at Chewy), which provides
@@ -72,46 +72,56 @@ export default function Adoption() {
                 </div>
 
                  <div className={'adoptionlistbox container w-9/12 grid m-auto gap-y-3 gap-x-3 max-md:w-full max-md:p-1 pb-8'} style={{gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))'}}>
-                    {AdoptionsState.FilteredAdoptions?.data?.length ? AdoptionsState.FilteredAdoptions.data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((SingleAdoption: Adoption) => (
-                            <div key={SingleAdoption.id} className={'w-full border-orange '}>
-                                <div
-                                    className={'img drop-shadow-xl border-[2px]  -z-10 bg-cover w-full m-auto bg-center rounded-t-xl h-[350px]'}
-                                    style={{backgroundImage: `url(${SingleAdoption?.image[0].Cloudurl})`}}></div>
-                                <div
-                                    className={'adoption_info drop-shadow-xl border-[2px]  w-full m-auto rounded-b-xl relative bg-white px-2 py-4 bg-findshap bg-contain'}>
-                                    <div className={'flex justify-between items-center  '}>
-                                        <p
-                                            className={'name text-center font-custom font-bold text-3xl text-dbleu p-2 hover:text-orange transition-all duration-700 cursor-pointer '}>
-                                            {SingleAdoption?.animal_name}
-                                        </p>
-                                        <button
-                                            className={'text-white font-bold bg-orange h-max p-1 rounded hover:bg-dbleu capitalize transition-all duration-500'}
-                                            onClick={() => navigate(`/Atlas/Adoptions/${SingleAdoption.id}`)}>
-                                            love Begin
-                                        </button>
-                                    </div>
-                                    <div className={'flex justify-between pt-4'}>
-                                        <p className={'breed font-bold grid grid-cols-[auto,1fr] gap-x-1 items-center text-[14px] text-gray-600'}>
-                                            <CiSettings/>
-                                            {SingleAdoption?.animal_race}
-                                        </p>
-                                        <p className={'birth font-bold grid grid-cols-[auto,1fr] gap-x-1 items-center text-[14px] text-gray-600'}>
-                                            <IoCalendarOutline/>
-                                            Age : {SingleAdoption?.animal_age} year
-                                        </p>
-                                    </div>
-                                    <div className={'h-[0.1px] m-auto mt-2 mb-2 bg-gray-600 w-11/12'}></div>
-                                    <div className={'flex justify-between'}>
-                                        <p className={'city font-bold grid grid-cols-[auto,1fr] gap-x-1 items-center text-[14px] text-gray-600'}>
-                                            <TbWorld/>
-                                            Rabat
-                                        </p>
-                                        <p className={'price font-bold text-gray-600'}>Total Price : Free</p>
-                                    </div>
+                     {!AdoptionsState.FilteredAdoptions.data  ?
+                        <div
+                        className={"text-center col-span-3 text-dbleu font-extrabold text-3xl capitalize font-custom flex items-center justify-center gap-x-3 "}>
+                        <p className={'underline'}>sorry No matching result</p><p className={'text-5xl'}>... 😢</p>
+                    </div> :
+                        AdoptionsState.FilteredAdoptions.data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((SingleAdoption: Adoption) => (
+                        <div key={SingleAdoption.id} className={'w-full border-orange '}>
+                            <div
+                                className={'img drop-shadow-xl border-[2px]  -z-10 bg-cover w-full m-auto bg-center rounded-t-xl h-[350px]'}
+                                style={{backgroundImage: `url(${SingleAdoption?.image[0]?.Cloudurl})`}}></div>
+                            <div
+                                className={'adoption_info drop-shadow-xl border-[2px]  w-full m-auto rounded-b-xl relative bg-white px-2 py-4 bg-findshap bg-contain'}>
+                                <div className={'flex justify-between items-center  '}>
+                                    <p
+                                        className={'name text-center font-custom font-bold text-3xl text-dbleu p-2 hover:text-orange transition-all duration-700 cursor-pointer '}>
+                                        {SingleAdoption?.animal_name}
+                                    </p>
+                                    <button
+                                        className={'text-white font-bold bg-orange h-max p-1 rounded hover:bg-dbleu capitalize transition-all duration-500'}
+                                        onClick={() => navigate(`/Atlas/Adoptions/${SingleAdoption.id}`)}>
+                                        love Begin
+                                    </button>
+                                </div>
+                                <div className={'flex justify-between pt-4'}>
+                                    <p className={'breed font-bold grid grid-cols-[auto,1fr] gap-x-1 items-center text-[14px] text-gray-600'}>
+                                        <CiSettings/>
+                                        {SingleAdoption?.animal_race}
+                                    </p>
+                                    <p className={'birth font-bold grid grid-cols-[auto,1fr] gap-x-1 items-center text-[14px] text-gray-600'}>
+                                        <IoCalendarOutline/>
+                                        Age : {SingleAdoption?.animal_age} year
+                                    </p>
+                                </div>
+                                <div className={'h-[0.1px] m-auto mt-2 mb-2 bg-gray-600 w-11/12'}></div>
+                                <div className={'flex justify-between'}>
+                                    <p className={'city font-bold grid grid-cols-[auto,1fr] gap-x-1 items-center text-[14px] text-gray-600'}>
+                                        <TbWorld/>
+                                        Rabat
+                                    </p>
+                                    <p className={'price font-bold text-gray-600'}>Total Price : Free</p>
                                 </div>
                             </div>
-                    )) :<div className={"text-center col-span-3 text-dbleu font-extrabold text-3xl capitalize font-custom flex items-center justify-center gap-x-3 "}><p className={'underline'}>sorry No matching result</p><p className={'text-5xl'}>... 😢</p></div>}
-                </div>
+                        </div>
+                    ))}
+                     {
+                         AdoptionsState.FilteredAdoptions.loading && !AdoptionsState.FilteredAdoptions.data  ?  <>
+
+                         </> : <></>
+                     }
+                 </div>
             </div>
             <div className={'flex justify-center gap-x-2 my-6'}>
                 {Array.from({
@@ -139,52 +149,48 @@ export default function Adoption() {
 }
 
 
-// <div
-//     className={'adoptionlistbox container w-9/12 grid m-auto gap-y-3 gap-x-3 max-md:w-full max-md:p-1 pb-8'}
-//     style={!AdoptionsState.loading ? {gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))'} : {width: 'max-content'}}
-// >
-//     {AdoptionsState.loading ? (
-//         <div className={'bg-loading bg-center bg-cover w-[300px] h-[300px]'}></div>
-//     ) : (
-//         AdoptionsState.Adoptions.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((SingleAdoption: Adoption) => (
-//             <div key={SingleAdoption.id} className={'w-full border-orange '}>
-//                 <div
-//                     className={'img drop-shadow-xl border-[2px]  -z-10 bg-cover w-full m-auto bg-center rounded-t-xl h-[350px]'}
-//                     style={{backgroundImage: `url(${SingleAdoption.image[0].Cloudurl})`}}></div>
-//                 <div
-//                     className={'adoption_info drop-shadow-xl border-[2px]  w-full m-auto rounded-b-xl relative bg-white px-2 py-4 bg-findshap bg-contain'}>
-//                     <div className={'flex justify-between items-center  '}>
-//                         <p
-//                             className={'name text-center font-custom font-bold text-3xl text-dbleu p-2 hover:text-orange transition-all duration-700 cursor-pointer '}>
-//                             {SingleAdoption?.animal_name}
-//                         </p>
-//                         <button
-//                             className={'text-white font-bold bg-orange h-max p-1 rounded hover:bg-dbleu capitalize transition-all duration-500'}
-//                             onClick={() => navigate(`/Atlas/Adoptions/${SingleAdoption.id}`)}>
-//                             love Begin
-//                         </button>
-//                     </div>
-//                     <div className={'flex justify-between pt-4'}>
-//                         <p className={'breed font-bold grid grid-cols-[auto,1fr] gap-x-1 items-center text-[14px] text-gray-600'}>
-//                             <CiSettings/>
-//                             {SingleAdoption?.animal_race}
-//                         </p>
-//                         <p className={'birth font-bold grid grid-cols-[auto,1fr] gap-x-1 items-center text-[14px] text-gray-600'}>
-//                             <IoCalendarOutline/>
-//                             Age : {SingleAdoption?.animal_age} year
-//                         </p>
-//                     </div>
-//                     <div className={'h-[0.1px] m-auto mt-2 mb-2 bg-gray-600 w-11/12'}></div>
-//                     <div className={'flex justify-between'}>
-//                         <p className={'city font-bold grid grid-cols-[auto,1fr] gap-x-1 items-center text-[14px] text-gray-600'}>
-//                             <TbWorld/>
-//                             Rabat
-//                         </p>
-//                         <p className={'price font-bold text-gray-600'}>Total Price : Free</p>
-//                     </div>
-//                 </div>
-//             </div>
-//         ))
-//     )}
-// </div>
+    //
+    // {AdoptionsState.loading ? (
+    //     <div className={'bg-loading bg-center bg-cover w-[300px] h-[300px]'}></div>
+    // ) : (
+    //     AdoptionsState.Adoptions.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((SingleAdoption: Adoption) => (
+    //         <div key={SingleAdoption.id} className={'w-full border-orange '}>
+    //             <div
+    //                 className={'img drop-shadow-xl border-[2px]  -z-10 bg-cover w-full m-auto bg-center rounded-t-xl h-[350px]'}
+    //                 style={{backgroundImage: `url(${SingleAdoption.image[0].Cloudurl})`}}></div>
+    //             <div
+    //                 className={'adoption_info drop-shadow-xl border-[2px]  w-full m-auto rounded-b-xl relative bg-white px-2 py-4 bg-findshap bg-contain'}>
+    //                 <div className={'flex justify-between items-center  '}>
+    //                     <p
+    //                         className={'name text-center font-custom font-bold text-3xl text-dbleu p-2 hover:text-orange transition-all duration-700 cursor-pointer '}>
+    //                         {SingleAdoption?.animal_name}
+    //                     </p>
+    //                     <button
+    //                         className={'text-white font-bold bg-orange h-max p-1 rounded hover:bg-dbleu capitalize transition-all duration-500'}
+    //                         onClick={() => navigate(`/Atlas/Adoptions/${SingleAdoption.id}`)}>
+    //                         love Begin
+    //                     </button>
+    //                 </div>
+    //                 <div className={'flex justify-between pt-4'}>
+    //                     <p className={'breed font-bold grid grid-cols-[auto,1fr] gap-x-1 items-center text-[14px] text-gray-600'}>
+    //                         <CiSettings/>
+    //                         {SingleAdoption?.animal_race}
+    //                     </p>
+    //                     <p className={'birth font-bold grid grid-cols-[auto,1fr] gap-x-1 items-center text-[14px] text-gray-600'}>
+    //                         <IoCalendarOutline/>
+    //                         Age : {SingleAdoption?.animal_age} year
+    //                     </p>
+    //                 </div>
+    //                 <div className={'h-[0.1px] m-auto mt-2 mb-2 bg-gray-600 w-11/12'}></div>
+    //                 <div className={'flex justify-between'}>
+    //                     <p className={'city font-bold grid grid-cols-[auto,1fr] gap-x-1 items-center text-[14px] text-gray-600'}>
+    //                         <TbWorld/>
+    //                         Rabat
+    //                     </p>
+    //                     <p className={'price font-bold text-gray-600'}>Total Price : Free</p>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     ))
+    // )}
 
