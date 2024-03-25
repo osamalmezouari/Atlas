@@ -20,12 +20,23 @@ export const findOneAdoption = createAsyncThunk('adoption/findOne',async (Adopti
 })
 
 export const findAllLocations = createAsyncThunk(
-    '',async () => {
+    'Adoptions/locations',async () => {
         return axios.get('http://localhost:3000/Adoptions/locations')
             .then((res)=>res.data)
             .catch((err)=>console.log(err))
     }
 )
+
+export const FindAdoptionNewStatistics =createAsyncThunk('Adoptions/AdoptionNewStatistics',()=>{
+    return axios.get("http://localhost:3000/Adoptions/AdoptionNewStatistics")
+        .then((res)=>res.data)
+        .catch((err)=>console.log(err))
+})
+export const FindAdoptionAdoptedStatistics =createAsyncThunk('Adoptions/AdoptionAdoptedStatistics',()=>{
+    return axios.get("http://localhost:3000/Adoptions/AdoptionAdoptedStatistics")
+        .then((res)=>res.data)
+        .catch((err)=>console.log(err))
+})
 
 const initialState = {
     Adoptions: {
@@ -42,6 +53,16 @@ const initialState = {
         data : [],
         loading : false,
         Error:""
+    },
+    FindAdoptionNewStatistics : {
+        data : [],
+        loading : false,
+        Error :""
+    },
+    FindAdoptionAdoptedStatistics : {
+        data : [],
+        loading : false,
+        Error :"",
     },
     AllLocations : [],
 }
@@ -108,6 +129,37 @@ const AdoptionSlice = createSlice({
             .addCase(findAllLocations.rejected,(state)=>{
                 state.AllLocations = []
             })
+            .addCase(FindAdoptionNewStatistics.pending,(state)=>{
+                state.FilteredAdoptions.data = []
+                state.FilteredAdoptions.loading = true
+                state.FilteredAdoptions.Error = ""
+            })
+            .addCase(FindAdoptionNewStatistics.fulfilled,(state,action)=>{
+                state.FindAdoptionNewStatistics.data= action.payload
+                state.FindAdoptionNewStatistics.loading = false
+                state.FindAdoptionNewStatistics.Error = ""
+            })
+            .addCase(FindAdoptionNewStatistics.rejected,(state)=>{
+                state.FindAdoptionAdoptedStatistics.data =[]
+                state.FindAdoptionAdoptedStatistics.loading = false
+                state.FindAdoptionAdoptedStatistics.Error = "something got wrong"
+            })
+            .addCase(FindAdoptionAdoptedStatistics.pending,(state)=>{
+                state.FindAdoptionAdoptedStatistics.data = []
+                state.FindAdoptionAdoptedStatistics.loading = true
+                state.FindAdoptionAdoptedStatistics.Error = ""
+            })
+            .addCase(FindAdoptionAdoptedStatistics.fulfilled,(state,action)=>{
+                state.FindAdoptionAdoptedStatistics.data= action.payload
+                state.FindAdoptionAdoptedStatistics.loading = false
+                state.FindAdoptionAdoptedStatistics.Error = ""
+            })
+            .addCase(FindAdoptionAdoptedStatistics.rejected,(state)=>{
+                state.FindAdoptionAdoptedStatistics.data =[]
+                state.FindAdoptionAdoptedStatistics.loading = false
+                state.FindAdoptionAdoptedStatistics.Error = "something got wrong"
+            })
+
     }
 })
 
