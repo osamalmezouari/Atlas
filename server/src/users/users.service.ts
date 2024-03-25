@@ -51,10 +51,12 @@ export class UsersService {
     this.usersRepository.create({
       ...createUserDto,
       role: roleassoc,
+      CreatedDate: Date.now(),
     });
     return this.usersRepository.save({
       ...createUserDto,
       role: roleassoc,
+      CreatedDate: new Date().getTime(),
     });
   }
 
@@ -77,5 +79,18 @@ export class UsersService {
   async delete(id: string) {
     const user = await this.findOne(id);
     return await this.usersRepository.remove(user);
+  }
+
+  async UserStatistics() {
+    const query = `
+    SELECT CreatedDate
+    FROM user
+    WHERE CreatedDate BETWEEN UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 7 DAY)) * 1000 
+    AND UNIX_TIMESTAMP(NOW()) * 1000;
+  `;
+
+    const rows = await this.usersRepository.query(query);
+    const createdDates = rows.map(row => row.CreatedDate);
+    return createdDates;
   }
 }
