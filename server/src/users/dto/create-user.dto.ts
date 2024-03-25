@@ -1,3 +1,4 @@
+import {Column} from "typeorm";
 
 export class CreateUserDto {
   firstname: string;
@@ -8,5 +9,6 @@ export class CreateUserDto {
   facebook: string;
   WhatsApp: string;
   phone: string;
+  CreatedDate: number;
   role: string;
 }
