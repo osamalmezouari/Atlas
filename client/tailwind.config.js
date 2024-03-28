@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
@@ -55,7 +56,11 @@ module.exports = {
         "path":"url(https://themebeyond.com/beyond/billu/wp-content/uploads/2023/03/H2B.jpg)",
         "map":"url(D:\\Oussama\\PROJECTS\\Atlas\\client\\public\\assets\\images\\map.png)",
         "subscribeimg" :"url('https://themebeyond.com/beyond/billu/wp-content/themes/billu/assets/img/icon/sn_icon.png')",
-        "loading":"url('https://themebeyond.com/beyond/billu/wp-content/themes/billu/assets/img/preloader.gif')"
+        "loading":"url('https://themebeyond.com/beyond/billu/wp-content/themes/billu/assets/img/preloader.gif')",
+        "blacklike":"url(D:\\Oussama\\PROJECTS\\Atlas\\client\\public\\assets\\icons\\like.png)",
+        "bleulike":"url(D:\\Oussama\\PROJECTS\\Atlas\\client\\public\\assets\\icons\\facebook-reactions.png)",
+        "blacklove":"url(D:\\Oussama\\PROJECTS\\Atlas\\client\\public\\assets\\icons\\love.png)",
+        "redlove":"url(D:\\Oussama\\PROJECTS\\Atlas\\client\\public\\assets\\icons\\love (1).png)"
       }
     },
   },
