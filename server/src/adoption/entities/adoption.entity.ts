@@ -48,6 +48,10 @@ export class Adoption {
   castrate: boolean;
   @Column()
   Vaccinated: boolean;
+  @Column({ nullable: true })
+  likes: number;
+  @Column({ nullable: true })
+  loves: number;
 
   @ManyToOne(() => User, (user) => user.adoption)
   user: User;
