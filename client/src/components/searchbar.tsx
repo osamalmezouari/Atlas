@@ -23,8 +23,8 @@ function Searchbar() {
         Class:string,
         location:string
     }>({
-        Class:"",
-        location:""
+        Class:"all",
+        location:"all"
     })
     const HandlerChange = (e:ChangeEvent<HTMLSelectElement>)=>{
        const target = e.target
@@ -47,7 +47,7 @@ function Searchbar() {
 
 
   return (
-    <form onSubmit={(event)=>handleSubmit(event)}>
+    <form onSubmit={(event)=>handleSubmit(event)} method={'Get'}>
       <div
         className={'bg-orange col-span-2 rounded-tl-xl rounded-tr-xl text-center font-custom p-1 text-xl capitalize font-bold flex items-center justify-center tracking-wide  bg-findshap bg-contain w-full max-md:h-24 bg-center h-12 max-md:py-2 '}> Discover
         your forever companion with just a click !
@@ -59,6 +59,7 @@ function Searchbar() {
           <FaLocationArrow />
         </div>
           <select
+              defaultValue={''}
               onChange={(event) => HandlerChange(event)}
               name={'location'}
               className={"pl-2 font-bold capitalize text-wblue rounded outline-none h-12  border-2 border-transparent hover:border-orange transition-all duration-500 max-md:col-start-2 max-md:row-start-1"}
