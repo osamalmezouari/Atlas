@@ -1,8 +1,8 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import  axios from "axios";
 
-export const findFilteredAdoptions = createAsyncThunk('adoption/findFilteredAdoptions', async ({classParam , locationParam } :{classParam ?:string,locationParam ?:string}) => {
-    return axios.get(classParam && locationParam ? `http://localhost:3000/Adoptions/${classParam}/${locationParam}`:`http://localhost:3000/Adoptions`)
+export const findFilteredAdoptions = createAsyncThunk('adoption/findFilteredAdoptions', async ({classParam, locationParam } :{classParam :string,locationParam :string}) => {
+    return axios.get(`http://localhost:3000/Adoptions/${classParam }/${locationParam }`)
         .then((res)=>res.data)
         .catch((error)=> console.log(error))
 });
