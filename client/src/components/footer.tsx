@@ -42,7 +42,7 @@ const Footer = () =>{
       <div className={"w-full h-[26px]  bg-copyright relative bg-cover bg-center"}></div>
     </section>
     <div className={"w-full h-24 font-custom bg-dbleu relative text-center p-8 text-white "}>
-      <div> AllCopyright © 2024 All Rights Reserved By Atlas
+      <div> AllCopyright © {new Date().getFullYear()} All Rights Reserved By Atlas
       </div>
     </div>
   </>
