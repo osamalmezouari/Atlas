@@ -17,6 +17,8 @@ export interface Adoption extends User{
     castrate: boolean;
     Vaccinated : boolean
     location: string;
+    likes: number;
+    loves: number;
     user: User
     image: [{
         id:string
