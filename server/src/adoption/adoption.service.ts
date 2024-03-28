@@ -19,6 +19,7 @@ export class AdoptionService {
 
   async findAll(): Promise<Adoption[]> {
     return this.adoptionRepository.find({
+      where: { adopted: false },
       relations: {
         image: true,
       },
@@ -28,7 +29,29 @@ export class AdoptionService {
     classParam: string,
     locationParam: string,
   ): Promise<Adoption[]> {
-    console.log(classParam, locationParam);
+    if (classParam === "all" && locationParam === "all") {
+      const result = await this.findAll();
+      return result;
+    }
+    if (locationParam === "all") {
+      const result = await this.adoptionRepository.find({
+        where: { animal_class: classParam },
+        relations: {
+          image: true,
+        },
+      });
+      return result;
+    }
+    if (classParam === "all") {
+      const result = await this.adoptionRepository.find({
+        where: { location: locationParam },
+        relations: {
+          image: true,
+        },
+      });
+      return result;
+    }
+
     const result = await this.adoptionRepository.find({
       where: { animal_class: classParam, location: locationParam },
       relations: {
