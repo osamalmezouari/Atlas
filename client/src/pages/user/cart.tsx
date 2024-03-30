@@ -42,7 +42,7 @@ function Cart() {
       <>
         <Navbar/>
         <div className={'h-32 bg-about'}></div>
-        <div className={'bg-about h-full'}>
+        <div className={`bg-about min-h-[calc(100vh-130px)]`}>
 
           <div className={'personal-content p-6 flex gap-x-5 max-w-[800px] m-auto'}>
             <div className={'page-content w-full h-full'}>
@@ -58,7 +58,7 @@ function Cart() {
               <div className={'grid grid-cols-2 max-md:grid-cols-1 gap-3'}>
                 {AdoptionsCart?.map((singleAdoption) => {
                   return <div
-                      className={'w-full bg-white h-full p-2 grid items-center grid-cols-1 gap-y-3 grid-rows-[auto,auto,auto]'}>
+                      className={'w-full mb-5 bg-white h-full p-2 grid items-center grid-cols-1 gap-y-3 grid-rows-[auto,auto,auto]'}>
                     <div className={'bg-adoptionlist w-full bg-center bg-cover rounded h-[180px]'}></div>
                     <div className={"text-dbleu w-full grid gap-y-2 font-custom font-bold"}>
                       <div className={"grid grid-cols-[80px,1fr] gap-x-3"}><span
@@ -85,7 +85,7 @@ function Cart() {
                   </div>
                 })}
               </div>
-              <div className={'flex mt-5 items-center justify-between bg-white p-4 rounded'}>
+              <div className={'flex items-center justify-between bg-white p-4 rounded'}>
                 <h1 className={"text-xl font-custom capitalize font-bold text-dbleu"}>Clear All</h1>
                 <div className={'h-full bg-dbleu p-2 rounded text-white cursor-pointer hover:bg-orange transition-all duration-500'}>
                   <FaDeleteLeft  onClick={RemoveAll}/></div>
