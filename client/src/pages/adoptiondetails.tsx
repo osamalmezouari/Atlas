@@ -1,4 +1,3 @@
-
 import Navbar from "../components/navbar.tsx";
 import {useParams} from "react-router-dom";
 import {useEffect} from "react";
@@ -19,13 +18,26 @@ function Adoptiondetails() {
     const OneAdoption = useSelector((state: StoreState) => state.Adoptions.OneAdoption);
     const loading = useSelector((state: StoreState) => state.Adoptions.OneAdoption.loading);
 
-
+    if (!localStorage.getItem('CartItems')) {
+        localStorage.setItem('CartItems', JSON.stringify([]));
+    }
+    const AddToCart = (ItemId : string) => {
+        const ExistingItemsString = localStorage.getItem('CartItems');
+        const ExistingItems : string [] | null = ExistingItemsString ? JSON.parse(ExistingItemsString) : [];
+        const filtredExisstingItems : string[]= []
+        ExistingItems?.push(ItemId)
+        ExistingItems?.map((ItemId)=>{
+            if (filtredExisstingItems.includes(ItemId))return
+            filtredExisstingItems.push(ItemId)
+        })
+        localStorage.setItem('CartItems',JSON.stringify(filtredExisstingItems))
+    }
     useEffect(() => {
         dispatch(findOneAdoption(AdoptionId))
     }, [dispatch, AdoptionId])
     return (
         <>
-            <div className={`  bg-white h-screen`}>
+            <div className={`bg-white h-screen`}>
                 <Navbar/>
                 {!loading && OneAdoption ? <div
                     className={'grid grid-cols-2 max-md:grid-cols-1 pt-32  h-full  max-w-[1200px] max-md:px-10 gap-x-6 m-auto'}>
@@ -136,6 +148,7 @@ function Adoptiondetails() {
                                 className={'bg-dbleu w-8 mt-2 text-white h-8 items-center justify-center flex rounded-full'}>
                                 <FaShare/></div>
                             <div
+                                onClick={()=>AddToCart(OneAdoption?.data?.id)}
                                 className={'bg-dbleu w-8 mt-2 text-white h-8 items-center justify-center flex rounded-full'}>
                                 <FaCartPlus/></div>
                         </div>
