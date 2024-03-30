@@ -7,7 +7,7 @@ const store = configureStore({
     reducer : {
         Adoptions : AdoptionsReducer,
         Users : UsersReducer,
-        Reviews : RviewsReducer
+        Reviews : RviewsReducer,
     }
 })
 export type AppDispatch = typeof store.dispatch;
