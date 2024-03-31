@@ -24,27 +24,27 @@ function Adoptiondetails() {
     const AddToCart = (ItemId : string) => {
         const ExistingItemsString = localStorage.getItem('CartItems');
         const ExistingItems : string [] | null = ExistingItemsString ? JSON.parse(ExistingItemsString) : [];
-        const filtredExisstingItems : string[]= []
+        const filteredExisstingItems : string[]= []
         ExistingItems?.push(ItemId)
         ExistingItems?.map((ItemId)=>{
-            if (filtredExisstingItems.includes(ItemId))return
-            filtredExisstingItems.push(ItemId)
+            if (filteredExisstingItems.includes(ItemId))return
+            filteredExisstingItems.push(ItemId)
         })
-        localStorage.setItem('CartItems',JSON.stringify(filtredExisstingItems))
+        localStorage.setItem('CartItems',JSON.stringify(filteredExisstingItems))
     }
     useEffect(() => {
         dispatch(findOneAdoption(AdoptionId))
     }, [dispatch, AdoptionId])
     return (
         <>
-            <div className={`bg-white h-screen`}>
+            <div className={`bg-rev bg-contain bg-center h-screen`}>
                 <Navbar/>
-                {!loading && OneAdoption ? <div
+                {!loading && OneAdoption && OneAdoption.data && OneAdoption.data.image && OneAdoption.data.image.length > 0  ? <div
                     className={'grid grid-cols-2 max-md:grid-cols-1 pt-32  h-full  max-w-[1200px] max-md:px-10 gap-x-6 m-auto'}>
                     <div className={'grid-rows-[1.6fr,1fr]'}>
                         <div
-                            className={'img w-full h-[400px] grid grid-rows-2 relative bg-cover bg-center rounded-xl border-2 border-orange'}
-                            style={{backgroundImage: `url($)`}}>
+                            className={'img w-full h-[400px]  grid grid-rows-4 relative bg-contain bg-no-repeat bg-center rounded-xl border-2 border-orange'}
+                            style={{backgroundImage: `url(${OneAdoption?.data?.image[0]?.Cloudurl})`}}>
                             <div className={'hash absolute bg-dbleu left-2 top-2 p-1 rounded text-white flex gap items-center font-custom gap-x-2'}><p><CgHashtag /></p>{2535}</div>
                             <button
                                 // onClick={() => ReviewsHandler('left')}
@@ -55,9 +55,9 @@ function Adoptiondetails() {
                                 // onClick={() => ReviewsHandler('right')}
                                 className={"bg-slideicon absolute right-2 top-[46%] hover:w-12 hover:h-12 transition-all duration-300 cursor-pointer bg-contain bg-no-repeat bg-center w-10 h-10 self-center flex justify-center items-center text-white "}>
                                 <FaChevronCircleRight/></button>
-                            <div className={'flex items-center gap-x-2 justify-center row-start-2 '}>
-                                <div className={'col-start-1 w-28 h-28 border-2 rounded  bottom-2 right-[30%] border-orange'}></div>
-                                <div className={'col-start-2 w-28 h-28 border-2 rounded  bottom-2 left-[30%] border-orange'}></div>
+                            <div className={'flex items-center gap-x-2 justify-center row-start-4 '}>
+                                <div className={'col-start-1 w-12 h-12 border-2 rounded  bottom-2 right-[30%] border-orange'}></div>
+                                <div className={'col-start-2 w-12 h-12 border-2 rounded  bottom-2 left-[30%] border-orange'}></div>
                             </div>
                         </div>
                         <div className={'properties p-2'}>
@@ -69,7 +69,7 @@ function Adoptiondetails() {
                                 className={'grid grid-cols-4 max-md:grid-cols-2 gap-x-2 justify-between text-center font-custom px-2 gap-y-3 mt-2'}>
                                 <div className={'w-full propchild bg-blue-100  border-2 h-12 rounded  border-blue-400 '}>
                                     <p className={'capitalize text-blue-400 '}>name</p>
-                                    <p className={'text-[12px] lowercase'}>{OneAdoption.data.animal_name}</p>
+                                    <p className={'text-[12px] lowercase font-bold text-dbleu'}>{OneAdoption.data.animal_name}</p>
                                 </div>
                                 <div className={'w-full propchild bg-blue-100  border-2 h-12 rounded  border-blue-400 '}>
                                     <p className={'capitalize text-blue-400 '}>age</p>
@@ -119,8 +119,7 @@ function Adoptiondetails() {
                                 <div
                                     className={"w-full h-max user-details col-start-3 col-span bg-white p-5 rounded relative border-2 mt-10 border-orange "}>
                                     <div className={'grid grid-cols-[auto,1fr] gap-x-3 font-bold'}>
-                                        <div
-                                            className={"row-span-2 w-12 h-12 bg-avatar bg-center bg-cover rounded-full "}></div>
+                                        <div className={"row-span-2 w-12 h-12 bg-avatar bg-center bg-cover rounded-full "}></div>
                                         <p className={'capitalize font-normal'}> {OneAdoption.data?.user?.firstname + " " + OneAdoption.data?.user?.lastname}</p>
                                         <p className={'font-normal text-orange '}>{"Member"}</p>
                                     </div>
@@ -142,14 +141,14 @@ function Adoptiondetails() {
                         </div>
                         <div className={'flex-col h-52 w-full '}>
                             <div
-                                className={'bg-dbleu w-8 text-white h-8 items-center justify-center flex rounded-full'}>
+                                className={'bg-dbleu cursor-pointer w-8 text-white h-8 items-center justify-center flex rounded-full'}>
                                 <FaXmark/></div>
                             <div
-                                className={'bg-dbleu w-8 mt-2 text-white h-8 items-center justify-center flex rounded-full'}>
+                                className={'bg-dbleu cursor-pointer w-8 mt-2 text-white h-8 items-center justify-center flex rounded-full'}>
                                 <FaShare/></div>
                             <div
                                 onClick={()=>AddToCart(OneAdoption?.data?.id)}
-                                className={'bg-dbleu w-8 mt-2 text-white h-8 items-center justify-center flex rounded-full'}>
+                                className={'bg-dbleu cursor-pointer w-8 mt-2 text-white h-8 items-center justify-center flex rounded-full'}>
                                 <FaCartPlus/></div>
                         </div>
                     </div>

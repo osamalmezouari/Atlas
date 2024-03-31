@@ -9,4 +9,6 @@
 }
 .propchild > p:nth-child(2) {
     color: white;
+    font-weight: bolder;
+    text-transform: capitalize;
 }

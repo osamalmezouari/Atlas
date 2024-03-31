@@ -52,7 +52,7 @@ function Navbar() {
             {/*feature <p className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"}>Lost Paws </p>*/}
             <a className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"} href={'#Contact' }>Contact</a>
           </div>
-          <div className={"navpart-three col-start-6 flex gap-6 border-l-2 px-4 pl-3 items-center"}>
+          <div className={"navpart-three col-start-6 flex gap-2 border-l-2 px-4 pl-3 items-center"}>
             {/*Feature <div className={"text-3xl cursor-pointer"}><GiSelfLove /></div>*/}
             <div className={"w-max bg-orange text-white p-3 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"} onClick={() => navigate('/Atlas/PawsCart')}><GrShop/></div>
             {/*<button*/}

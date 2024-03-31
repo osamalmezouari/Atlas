@@ -218,7 +218,7 @@ function Landing() {
         {/*</div>*/}
       </section>
       <div className={"w-full  top-14 h-[16px] bg-revshap bg-cover bg-center relative"}></div>
-      <section className={'faq mt-10  h-full py-16 bg-mysky flex pt-12 justify-center '}>
+      <section className={'faq mt-10 tracking-l transition-all duration-600  h-full py-16 bg-mysky flex pt-12 justify-center '}>
         <div className={'text text-center grid grid-rows-[auto,0.1fr,auto,20px,1fr] gap-3 '}>
           <div className={'icon bg-paws w-4 h-4 bg-cover animate-bounce rotate-90 mx-auto'}></div>
           <p className={'capitalize w-full text-orange font-custom text-xl font-bold'}> FA Question</p>
