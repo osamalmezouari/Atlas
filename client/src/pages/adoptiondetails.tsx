@@ -1,6 +1,6 @@
 import Navbar from "../components/navbar.tsx";
 import {useParams} from "react-router-dom";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {findOneAdoption} from "../features/adoption/adoptionSlice.ts";
 import {AppDispatch} from "../app/store.ts";
 import {useDispatch, useSelector} from "react-redux";
@@ -17,6 +17,7 @@ function Adoptiondetails() {
     const {AdoptionId} = useParams()
     const OneAdoption = useSelector((state: StoreState) => state.Adoptions.OneAdoption);
     const loading = useSelector((state: StoreState) => state.Adoptions.OneAdoption.loading);
+    const [toogle,settoogle] = useState<boolean>(false)
 
     if (!localStorage.getItem('CartItems')) {
         localStorage.setItem('CartItems', JSON.stringify([]));
@@ -141,15 +142,17 @@ function Adoptiondetails() {
                         </div>
                         <div className={'flex-col h-52 w-full '}>
                             <div
-                                className={'bg-dbleu cursor-pointer w-8 text-white h-8 items-center justify-center flex rounded-full'}>
+                                onClick={()=>settoogle(!toogle)}
+                                className={`bg-dbleu rotate-45 ${toogle ? 'rotate-0' : "" } duration-500 transition-transform cursor-pointer w-8 text-white h-8 items-center justify-center flex rounded-full`}>
                                 <FaXmark/></div>
                             <div
-                                className={'bg-dbleu cursor-pointer w-8 mt-2 text-white h-8 items-center justify-center flex rounded-full'}>
+                                className={`bg-dbleu relative transition-all duration-500 -top-[41.9px] -z-10 ${toogle ? 'top-[16px] z-10' : '' } cursor-pointer w-8 mt-2 text-white h-8 items-center justify-center flex rounded-full`}>
                                 <FaShare/></div>
                             <div
                                 onClick={()=>AddToCart(OneAdoption?.data?.id)}
-                                className={'bg-dbleu cursor-pointer w-8 mt-2 text-white h-8 items-center justify-center flex rounded-full'}>
-                                <FaCartPlus/></div>
+                                className={`bg-dbleu relative transition-all duration-500 -top-[82px] -z-10 ${toogle ? 'top-[32px] z-10' : '' } cursor-pointer w-8 mt-2 text-white h-8 items-center justify-center flex rounded-full`}>
+                                <FaCartPlus/>
+                            </div>
                         </div>
                     </div>
                 </div> : <div className={'loading'}>
