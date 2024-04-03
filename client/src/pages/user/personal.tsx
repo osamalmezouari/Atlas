@@ -1,7 +1,10 @@
 import Navbar from "../../components/navbar.tsx";
 import { FaBars, FaEdit } from "react-icons/fa";
+import Usernavbar from "../../components/user/usernavbar.tsx";
+import {useState} from "react";
 
 function Personal() {
+  const [ToogleNavbar,setToogleNavbar] = useState<boolean>(false)
   return (
     <div className={'bg-about h-screen'}>
       <Navbar /> {/*remove the login button and add the sign the profile button*/}
@@ -10,10 +13,12 @@ function Personal() {
           <div className={'flex items-center justify-between bg-white p-4 rounded'}>
             <h1 className={"text-xl font-custom capitalize font-bold text-dbleu"}>Personal info</h1>
             <div
+                onClick={()=>setToogleNavbar(!ToogleNavbar)}
                 className={'h-full bg-dbleu p-2 rounded text-white cursor-pointer hover:bg-orange transition-all duration-500'}>
               <FaBars/></div>
           </div>
           <div className={"w-full mt-2 mb-6 h-[3px] bg-orange block rounded"}></div>
+          {ToogleNavbar ?<Usernavbar/> : ""}
           {/*user will render here */}
           <form className={"grid grid-rows-4 max-w-[800px] grid-cols-[auto,1fr] gap-x-5 gap-y-5 m-auto"}>
             <div className={"avatar w-[120px] relative bg-avatar row-span-2 bg-cover bg-center rounded-xl"}>
