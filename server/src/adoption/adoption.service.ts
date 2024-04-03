@@ -35,7 +35,7 @@ export class AdoptionService {
     }
     if (locationParam === "all") {
       const result = await this.adoptionRepository.find({
-        where: { animal_class: classParam },
+        where: { animal_class: classParam, adopted: false },
         relations: {
           image: true,
         },
@@ -44,7 +44,7 @@ export class AdoptionService {
     }
     if (classParam === "all") {
       const result = await this.adoptionRepository.find({
-        where: { location: locationParam },
+        where: { location: locationParam, adopted: false },
         relations: {
           image: true,
         },
@@ -53,7 +53,11 @@ export class AdoptionService {
     }
 
     const result = await this.adoptionRepository.find({
-      where: { animal_class: classParam, location: locationParam },
+      where: {
+        animal_class: classParam,
+        location: locationParam,
+        adopted: false,
+      },
       relations: {
         image: true,
       },
