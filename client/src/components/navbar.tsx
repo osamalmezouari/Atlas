@@ -54,7 +54,7 @@ function Navbar() {
           </div>
           <div className={"navpart-three col-start-6 flex gap-2 border-l-2 px-4 pl-3 items-center"}>
             {/*Feature <div className={"text-3xl cursor-pointer"}><GiSelfLove /></div>*/}
-            <div className={"w-max bg-orange text-white p-3 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"} onClick={() => navigate('/Atlas/PawsCart')}><GrShop/></div>
+            <button className={"w-max bg-orange text-white p-3 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"} onClick={() => navigate('/Atlas/PawsCart')}><GrShop/></button>
             {/*<button*/}
             {/*  onClick={()=>navigate('/Atlas/login')}*/}
             {/*  className={"w-24 bg-orange text-white py-2 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"}>Login*/}
@@ -79,10 +79,10 @@ function Navbar() {
               {/*    className={"w-24 bg-orange text-white py-2 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"}>Login*/}
               {/*</button>*/}
               <button
-                  className={"w-max bg-orange text-white p-[5px] rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"}
+                  className={"w-max bg-orange text-white p-3 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"}
                   onClick={() => navigate('/Atlas/MyProfile')}><FaUser/>
               </button>
-              <button className={"text-3xl cursor-pointer"} onClick={() => {
+              <button className={"w-max bg-orange text-white p-3 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"} onClick={() => {
                 setNavstate(prev => {
                   return {
                     ...prev,
@@ -93,11 +93,12 @@ function Navbar() {
             </div>
           </div>
           <div
-              className={"fixed w-full z-[60] top-24 py-2 bg-orange text-white bg-findshap top-[-500px] transition-all duration-700 ease-in-out"}
+              className={"fixed  py-6 w-full z-[60] bg-orange text-white bg-findshap top-[-500px] transition-all duration-700 ease-in-out"}
               style={NavState.showNavele ? { top: "90px" } : {}}>
             <a
+                onClick={()=>navigate('/Atlas')}
+                href={'#Home'}
               className={"  p-2 font-custom font-bold text cursor-pointer transition-all duration-500 flex gap-6 hover:pl-7 hover:bg-dbleu rounded mx-2"}
-            href={'#Home'}
             >
 
               <FaHome className={"text-xl "} />Home</a>
@@ -108,7 +109,7 @@ function Navbar() {
               <BsInfoSquareFill />About</a>
             <p
               className={"p-2 font-custom font-bold text cursor-pointer transition-all duration-500 flex gap-6 hover:pl-7 hover:bg-dbleu rounded mx-2"}
-
+              onClick={()=>navigate('/Atlas/Adoptions')}
             >
               <FaShieldCat /> Adoption</p>
             <a
@@ -117,16 +118,17 @@ function Navbar() {
             >
               <RiMessage3Fill /> Contact</a>
             <p
+                onClick={()=>navigate('/Atlas/PawsCart')}
               className={"p-2 font-custom font-bold text cursor-pointer transition-all duration-500 flex gap-6 hover:pl-7 hover:bg-dbleu rounded mx-2"}>
-              <GrShop /> Paws Cart</p>
+              <GrShop /> Paws Cart
+            </p>
             {/*<p*/}
             {/*  className={"p-2 font-custom font-bold text  cursor-pointer transition-all duration-500 flex gap-6 hover:pl-7 hover:bg-dbleu rounded mx-2"}>*/}
             {/*  <GiSelfLove />Dream Pets*/}
             {/*</p>*/}
-            <div className={"navshap w-full h-8 bg-navshap bg-cover bg-center relative top-10 -z-10 "}></div>
+            <div className={" w-full h-8 bg-navshap bg-cover bg-center relative top-10 -z-10 "}></div>
           </div>
-          <div
-            className={"navshap-when-nav-hidden  w-full h-16 bg-navshap bg-cover bg-center absolute top-12  "}></div>
+          <div className={" w-full h-16 bg-navshap bg-cover bg-center absolute top-12  "}></div>
         </nav>
         : ''}
     </div>
