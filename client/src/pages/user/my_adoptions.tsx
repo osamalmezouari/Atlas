@@ -1,10 +1,14 @@
 import Navbar from "../../components/navbar.tsx";
 import { FaBars,  } from "react-icons/fa";
+import {useState} from "react";
+import Usernavbar from "../../components/user/usernavbar.tsx";
 // import {FaEdit} from "react-icons/fa"
 // import {  FaXmark } from "react-icons/fa6";
 // import { AiFillDelete} from "react-icons/ai";
 
 function My_adoptions() {
+  const [ToogleNavbar,setToogleNavbar] = useState<boolean>(false)
+
   return (
     <div className={'bg-about h-full'}>
       <Navbar /> {/*remove the login button and add the sign the profile button*/}
@@ -16,21 +20,12 @@ function My_adoptions() {
               className={'bg-dbleu font-custom font-bold px-2 py-1 text-white rounded cursor-pointer hover:bg-orange transition-all duration-500'}>Add
             </div>
             <div
-              className={'h-full bg-dbleu p-2 h-max rounded text-white cursor-pointer hover:bg-orange transition-all duration-500'}>
-              <FaBars />
-            </div>
+                onClick={() => setToogleNavbar(!ToogleNavbar)}
+                className={'h-full bg-dbleu p-2 rounded text-white cursor-pointer hover:bg-orange transition-all duration-500'}>
+              <FaBars/></div>
           </div>
           <div className={"w-full mt-2 mb-6 h-[3px] bg-orange block rounded"}></div>
-          <div className={'sidenav bg-white p-4 rounded max-w-[800px] m-auto h-max mb-5 overflow-clip'}>
-            <div
-              className={'bg-dbleu cursor-pointer hover:bg-orange transition-all duration-500 p-3 rounded mb-3 text-white font-custom font-bold'}>Personal
-              Information
-            </div>
-            <div
-              className={'bg-dbleu cursor-pointer hover:bg-orange transition-all duration-500 p-3 rounded text-white font-custom font-bold'}>My
-              Adoptions
-            </div>
-          </div>
+          {ToogleNavbar ?<Usernavbar/> : ""}
           {/*<table className={'table-of-adoptions  max-h-[200px] overflow-y-scroll border-b-2 border-white w-full '}>*/}
           {/*  <tr className={"text-center bg-white h-10 p-4 rounded-tl rounded-tr font-bold font-custom capitalize text-dbleu"}>*/}
           {/*    <td>name</td>*/}
