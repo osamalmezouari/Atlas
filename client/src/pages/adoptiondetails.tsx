@@ -143,7 +143,7 @@ function Adoptiondetails() {
                         <div className={'flex-col h-52 w-full '}>
                             <div
                                 onClick={()=>settoogle(!toogle)}
-                                className={`bg-dbleu rotate-45 ${toogle ? '-rotate-180' : "" } duration-500 transition-transform cursor-pointer w-8 text-white h-8 items-center justify-center flex rounded-full`}>
+                                className={`bg-dbleu rotate-45 ${toogle ? '-rotate-90' : "" } duration-500 transition-transform cursor-pointer w-8 text-white h-8 items-center justify-center flex rounded-full`}>
                                 <FaXmark/></div>
                             <div
                                 className={`bg-dbleu relative transition-all duration-500 -top-[41.9px] -z-10 ${toogle ? 'top-[16px] z-10' : '' } cursor-pointer w-8 mt-2 text-white h-8 items-center justify-center flex rounded-full`}>
