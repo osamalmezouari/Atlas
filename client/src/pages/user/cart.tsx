@@ -54,11 +54,11 @@ function Cart() {
                 >
                   <FaPlus/></div>
               </div>
-              <div className={"w-full mt-2 mb-6 h-[3px] bg-orange block rounded"}></div>
-              <div className={'grid grid-cols-2 max-md:grid-cols-1 gap-3'}>
+              <div className={"w-full mt-2 mb-2 h-[3px] bg-orange block rounded"}></div>
+              <div className={'grid grid-cols-2 mb-3 max-md:grid-cols-1 gap-3'}>
                 {AdoptionsCart?.map((singleAdoption) => {
                   return <div
-                      className={'w-full mb-5 bg-white h-full p-2 grid items-center grid-cols-1 gap-y-3 grid-rows-[auto,auto,auto]'}>
+                      className={'w-full bg-white h-full p-2 grid items-center grid-cols-1 gap-y-3 grid-rows-[auto,auto,auto]'}>
                     <div className={'bg-adoptionlist w-full bg-center bg-cover rounded h-[180px]'}></div>
                     <div className={"text-dbleu w-full grid gap-y-2 font-custom font-bold"}>
                       <div className={"grid grid-cols-[80px,1fr] gap-x-3"}><span
@@ -76,10 +76,10 @@ function Cart() {
                       <div className={'flex gap-x-1'}>
                         <GrView
                             onClick={() => navigate(`/Atlas/Adoptions/${singleAdoption?.id}`)}
-                            className={'self-end text-dbleu p-1 w-8 h-8 rounded border-2 border-dbleu hover:bg-orange hover:border-orange hover:text-white transition-all duration-500 cursor-pointer '}/>
+                            className={'self-end text-dbleu p-2 w-8 h-8 rounded border-2 border-dbleu hover:bg-orange hover:border-orange hover:text-white transition-all duration-500 cursor-pointer '}/>
                         <AiFillDelete
                             onClick={() => RemoveItemFromCart(singleAdoption?.id)}
-                            className={'self-end text-dbleu p-1 w-8 h-8 rounded border-2 border-dbleu hover:bg-orange hover:border-orange hover:text-white transition-all duration-500 cursor-pointer '}/>
+                            className={'self-end text-dbleu p-2 w-8 h-8 rounded border-2 border-dbleu hover:bg-orange hover:border-orange hover:text-white transition-all duration-500 cursor-pointer '}/>
                       </div>
                     </button>
                   </div>
