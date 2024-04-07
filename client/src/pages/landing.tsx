@@ -12,20 +12,14 @@ import {StoreState} from "../../Types/StoreState.ts";
 import {FindUserStatistics} from "../features/adoption/userSlice.ts";
 import {FindAdoptionAdoptedStatistics, FindAdoptionNewStatistics} from "../features/adoption/adoptionSlice.ts";
 import {FindAllReviews, FindReviewsStatistics} from "../features/adoption/reviewSlice.ts";
+import {FaqsState} from "../../Types/faqsState.ts";
 import ('../styles/index.css')
 
 function Landing() {
   const dispatch : AppDispatch = useDispatch()
   const navigate = useNavigate()
   const [ReviewCount,setReviewCount]= useState<number>(0)
-  const [FaqsActive,setActiveFaqs] = useState<
-      {
-        faqOne:boolean,
-        faqTwo:boolean,
-        faqThree:boolean,
-        faqFour:boolean,
-      }
-  >({
+  const [FaqsActive,setActiveFaqs] = useState<FaqsState>({
     faqOne: false,
     faqTwo:false,
     faqThree:false,
