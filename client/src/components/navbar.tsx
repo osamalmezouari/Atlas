@@ -46,7 +46,7 @@ function Navbar() {
           className={" nav-pc  flex justify-between bg-white items-center z-[100] px-2 font-custom text-wblue font-black fixed w-full m-auto"}>
           <div className={"navpart-one bg-logo bg-cover w-36 h-24 bg-center col-start-1"}></div>
           <div className={"navpart-two flex gap-5  col-start-2 col-span-4 "}>
-              <a className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"} onClick={()=>navigate('/Atlas')} >Home</a>
+              <a className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"} href={'#Home'} onClick={()=>navigate('/Atlas')} >Home</a>
             <a className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"} href={'#About' }>About</a>
             <p className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"} onClick={()=>navigate('/Atlas/Adoptions')} >Adoption</p>
             {/*feature <p className={"px-2 text hover:text-orange cursor-pointer transition-all duration-500"}>Lost Paws </p>*/}
