@@ -11,6 +11,7 @@ import { UsersService } from "./users.service";
 import { User } from "./entities/user.entity";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
+import { CreateSubscribeDto } from "./dto/create-subscribe.dto";
 
 @Controller("users")
 export class UsersController {
@@ -31,6 +32,11 @@ export class UsersController {
   @Post()
   async create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
+  }
+
+  @Post("/newSubscribe")
+  async createSubscriber(@Body() createsubscriber: CreateSubscribeDto) {
+    return this.usersService.createSubscriber(createsubscriber);
   }
   @Put(":id")
   async update(@Param("id") id: string, @Body() updatedUser: UpdateUserDto) {
