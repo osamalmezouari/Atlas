@@ -5,12 +5,16 @@ import { User } from "./entities/user.entity";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
 import { RolesService } from "../roles/roles.service";
+import { Subscribes } from "./entities/Subscribe.entity";
+import { CreateSubscribeDto } from "./dto/create-subscribe.dto";
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User)
     private readonly usersRepository: Repository<User>,
+    @InjectRepository(Subscribes)
+    private readonly subscribers: Repository<Subscribes>,
     private readonly rolesService: RolesService,
   ) {}
   async findAll(): Promise<User[]> {
@@ -60,6 +64,11 @@ export class UsersService {
     });
   }
 
+  createSubscriber(createsubscriber: CreateSubscribeDto) {
+    this.subscribers.create(createsubscriber);
+    return this.subscribers.save(createsubscriber);
+  }
+
   async update(id: string, updatedUser: UpdateUserDto) {
     const roleassoc = await this.rolesService.preloadrolebyame(
       updatedUser.role || "user",
@@ -90,7 +99,7 @@ export class UsersService {
   `;
 
     const rows = await this.usersRepository.query(query);
-    const createdDates = rows.map(row => row.CreatedDate);
+    const createdDates = rows.map((row) => row.CreatedDate);
     return createdDates;
   }
 }
