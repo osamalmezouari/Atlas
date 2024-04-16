@@ -55,14 +55,14 @@ function Navbar() {
           <div className={"navpart-three col-start-6 flex gap-2 border-l-2 px-4 pl-3 items-center"}>
             {/*Feature <div className={"text-3xl cursor-pointer"}><GiSelfLove /></div>*/}
             <button className={"w-max bg-orange text-white p-3 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"} onClick={() => navigate('/Atlas/PawsCart')}><GrShop/></button>
-            {/*<button*/}
-            {/*  onClick={()=>navigate('/Atlas/login')}*/}
-            {/*  className={"w-24 bg-orange text-white py-2 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"}>Login*/}
-            {/*</button>*/}
             <button
-                className={"w-max bg-orange text-white p-3 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"}
-                onClick={() => navigate('/Atlas/MyProfile')}><FaUser/>
+              onClick={()=>navigate('/Atlas/login')}
+              className={"w-24 bg-orange text-white py-2 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"}>Login
             </button>
+            {/*<button*/}
+            {/*    className={"w-max bg-orange text-white p-3 rounded cursor-pointer transition-all duration-500 hover:bg-dbleu"}*/}
+            {/*    onClick={() => navigate('/Atlas/MyProfile')}><FaUser/>*/}
+            {/*</button>*/}
           </div>
           <div
               className={"navshap-when-nav-hidden w-full left-0 h-16 bg-navshap bg-cover bg-center absolute top-12 -z-10"}></div>
