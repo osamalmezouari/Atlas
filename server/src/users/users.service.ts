@@ -7,6 +7,8 @@ import { UpdateUserDto } from "./dto/update-user.dto";
 import { RolesService } from "../roles/roles.service";
 import { Subscribes } from "./entities/Subscribe.entity";
 import { CreateSubscribeDto } from "./dto/create-subscribe.dto";
+import { JwtService } from '@nestjs/jwt';
+import * as bcrypt from "bcrypt";
 
 @Injectable()
 export class UsersService {
@@ -16,6 +18,8 @@ export class UsersService {
     @InjectRepository(Subscribes)
     private readonly subscribers: Repository<Subscribes>,
     private readonly rolesService: RolesService,
+    private jwtService: JwtService
+
   ) {}
   async findAll(): Promise<User[]> {
     return await this.usersRepository.find({
@@ -49,18 +53,28 @@ export class UsersService {
   }
 
   async create(createUserDto: CreateUserDto) {
+    const salt = await bcrypt.genSalt(10);
+    const password = createUserDto.password;
+    const hashedPassword = await bcrypt.hash(password, salt);
     const roleassoc = await this.rolesService.preloadrolebyame(
       createUserDto.role || "user",
     );
     this.usersRepository.create({
       ...createUserDto,
+      password: hashedPassword,
       role: roleassoc,
       CreatedDate: Date.now(),
     });
+    const userId = this.usersRepository.findOne({
+      where: { firstname: createUserDto.firstname },
+    });
+    const payload = { sub: userId, firstname: createUserDto.firstname };
     return this.usersRepository.save({
       ...createUserDto,
+      password: hashedPassword,
       role: roleassoc,
       CreatedDate: new Date().getTime(),
+      access_token: await this.jwtService.signAsync(payload),
     });
   }
 
