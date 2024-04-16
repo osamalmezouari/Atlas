@@ -1,6 +1,8 @@
 import Navbar from "../components/navbar.tsx";
+import {useNavigate} from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate()
   return (
     <div className={' bg-about bg-no-repeat bg-center font-custom capitalize font-bold '}>
       <Navbar/> {/*display just the sign and make the dream pets and paws cart hidden*/}
@@ -13,7 +15,7 @@ function Login() {
             <input className={"row-start-3 pl-2 outline-none h-12 border-2  hover:border-dbleu duration-500 transition-all rounded"} type={"password"} placeholder={"Password"}></input>
             <button className={'capitalize  border-2 rounded text-dbleu hover:text-white hover:bg-orange transition-all duration-500 border-orange h-12 row-start-5 bg-findshap bg-contain'} type={'submit'}> login</button>
             <div className={'row-start-4'}>
-              <div className={'flex justify-between text-[12px] pb-2'}><p>you do not have an account ? </p> <a className={'text-dbleu cursor-pointer underline'}>Sign in</a></div>
+              <div className={'flex justify-between text-[12px] pb-2'}><p>you do not have an account ? </p> <a className={'text-dbleu cursor-pointer underline'} onClick={()=>navigate('/Atlas/Register')}>Sign up</a></div>
               <div className={'flex justify-between text-[12px]'}><p>Forget password ?</p> <a className={'text-dbleu cursor-pointer underline'}>Reset now</a></div>
             </div>
           </form>
